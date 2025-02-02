@@ -1,11 +1,29 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+#root {
+  display: flex;
+  max-width: 1280px;
 }
 
-.logo {
+
+.editContainer {
+  background-color: lightblue;
+  width: 80vw;
+}
+
+.renderContainer {
+  background-color: lightgreen;
+  width: 120vw;
+}
+
+.
+
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -39,4 +57,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
