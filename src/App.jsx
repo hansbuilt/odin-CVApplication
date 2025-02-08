@@ -6,6 +6,7 @@ import EditSection from "./components/editor/EditSection";
 import EditGeneralInfo from "./components/editor/EditGeneralInfo";
 import EditEducationItem from "./components/editor/EditEducationItem";
 import EditJobCompany from "./components/editor/EditJobCompany";
+import EditSkillItem from "./components/editor/EditSkillItem";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -17,13 +18,18 @@ function App() {
         <EditSection name="General Info">
           <EditGeneralInfo></EditGeneralInfo>
         </EditSection>
+
         <EditSection name="Education">
           <EditEducationItem></EditEducationItem>
         </EditSection>
 
-        <EditSection name="Experience" />
-        <EditJobCompany></EditJobCompany>
-        <EditSection name="Skills & Interests" />
+        <EditSection name="Experience">
+          <EditJobCompany></EditJobCompany>
+        </EditSection>
+
+        <EditSection name="Skills & Interests">
+          <EditSkillItem></EditSkillItem>
+        </EditSection>
       </div>
       <div className="renderContainer">
         <h2>render will go here</h2>
