@@ -1,5 +1,5 @@
 function DeleteItemBtn(props) {
-  return <button>del</button>;
+  return <button className="buttonAddDel">-</button>;
 }
 
 export default DeleteItemBtn;

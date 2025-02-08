@@ -1,5 +1,5 @@
 function ShowHideBtn(props) {
-  return <button>show/hide</button>;
+  return <button className="buttonShowHide">^</button>;
 }
 
 export default ShowHideBtn;

@@ -10,10 +10,18 @@
   max-width: 1280px;
 }
 
-
 .editContainer {
   background-color: lightblue;
   width: 80vw;
+}
+
+.editSection > * > label {
+  font-size: 10pt;
+}
+
+.editSection > form {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
 }
 
 .renderContainer {
@@ -21,7 +29,17 @@
   width: 120vw;
 }
 
-.
+.editSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonAddDel,
+.buttonShowHide {
+  width: 25px;
+  height: 25px;
+}
 
 /* .logo {
   height: 6em;

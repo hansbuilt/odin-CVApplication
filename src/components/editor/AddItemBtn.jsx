@@ -1,5 +1,5 @@
 function AddItemBtn(props) {
-  return <button>add</button>;
+  return <button className="buttonAddDel">+</button>;
 }
 
 export default AddItemBtn;
