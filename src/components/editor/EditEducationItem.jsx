@@ -8,22 +8,22 @@ function EditEducationItem(props) {
       <ShowHideBtn></ShowHideBtn>
       <form>
         <label>Institution Name</label>
-        <input type="text" name="firstName" required></input>
+        <input type="text" name="educationInstitution" required></input>
 
         <label>Institution Location</label>
-        <input type="text" name="lastName" required></input>
+        <input type="text" name="educationLocation" required></input>
 
-        <label>Degree Type</label>
-        <input type="text" name="city" required></input>
+        <label>Degree</label>
+        <input type="text" name="educationDegree" required></input>
 
         <label>Graduation MM/YY</label>
-        <input type="text" name="state" required></input>
+        <input type="text" name="educationDates" required></input>
 
         <label>Majors</label>
-        <input type="text" name="zipcode" required></input>
+        <input type="text" name="educationMajors" required></input>
 
         <label>GPA</label>
-        <input type="text" name="phoneNumber" required></input>
+        <input type="text" name="educationGPA" required></input>
       </form>
       <AddItemBtn></AddItemBtn>
       <DeleteItemBtn></DeleteItemBtn>
