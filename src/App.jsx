@@ -2,11 +2,13 @@ import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
+import "./Viewer.css";
 import EditSection from "./components/editor/EditSection";
 import EditGeneralInfo from "./components/editor/EditGeneralInfo";
 import EditEducationItem from "./components/editor/EditEducationItem";
 import EditJobCompany from "./components/editor/EditJobCompany";
 import EditSkillsList from "./components/editor/EditSkillList";
+import ViewerContainer from "./components/viewer/ViewerContainer";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -32,7 +34,7 @@ function App() {
         </EditSection>
       </div>
       <div className="renderContainer">
-        <h2>render will go here</h2>
+        <ViewerContainer></ViewerContainer>
       </div>
     </>
   );

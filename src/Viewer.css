@@ -1,0 +1,72 @@
+.viewerContainer {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  width: 816px;
+  height: 1056px;
+}
+
+.resumeContainer {
+  margin: 10px;
+  width: 8.5in;
+  height: 11in;
+  background-color: white;
+  border: "1px solid black";
+  /* // 8.5 inches * 96 DPI */
+  /* // 11 inches * 96 DPI */
+
+  /* // transform: scale({.8})
+  // transform: `scale(${scale * 0.8})`,
+  // transformOrigin: "top center", */
+
+  /* // position: "absolute",
+  // left: "50%",
+  // top: "0",
+  // translate: "-50%",
+  // boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+  // overflow: "hidden", */
+}
+
+.resumeContent {
+  /* set page margins here */
+  padding: 0.5in;
+}
+
+.resumeHeader {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.resumeHeaderName {
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.resumeHeaderContact {
+  font-size: 8pt;
+}
+
+.resumeSectionContainer {
+  display: grid;
+  grid-template-columns: 1in auto;
+  font-size: 10pt;
+}
+
+.resumeSectionName {
+  font-weight: bold;
+  background-color: lightblue;
+}
+
+.resumeSectionContent {
+  background-color: lightyellow;
+}
+
+.institutionName,
+.companyName {
+  font-weight: bold;
+}
+
+.companyJobHeader {
+  font-style: italic;
+}
