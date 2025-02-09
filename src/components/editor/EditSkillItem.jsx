@@ -3,14 +3,13 @@ import DeleteItemBtn from "./DeleteItemBtn";
 
 function EditSkillItem(props) {
   return (
-    <>
-      <form>
-        <label>Skill/Interest</label>
-        <input type="text" name="jobTask" required></input>
-      </form>
-      <AddItemBtn></AddItemBtn>
-      <DeleteItemBtn></DeleteItemBtn>
-    </>
+    <div className="editBulletItem">
+      <input type="text" name="jobTask" required></input>
+      <div>
+        <AddItemBtn></AddItemBtn>
+        <DeleteItemBtn></DeleteItemBtn>
+      </div>
+    </div>
   );
 }
 

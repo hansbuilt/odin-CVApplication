@@ -1,9 +1,7 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
+* {
+  margin: 0;
+  padding: 0;
+}
 
 #root {
   display: flex;
@@ -15,7 +13,68 @@
   width: 80vw;
 }
 
-.editSection > * > label {
+.editSection {
+  background-color: rgb(120, 120, 120);
+  margin: 5px;
+  padding: 5px;
+}
+
+.editItemHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editInputContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.editBulletItem {
+  display: flex;
+}
+
+.editBulletItem > input {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.editSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 0 0 5px 0;
+  background-color: rgb(140, 140, 140);
+}
+
+.editJobCompany {
+  background-color: rgb(140, 140, 140);
+  display: flex;
+  flex-direction: column;
+}
+
+.editJobRole {
+  margin: 5px 0px 5px 5px;
+  background-color: rgb(160, 160, 160);
+}
+
+.editJobTask {
+  margin: 5px 0px 5px 5px;
+  background-color: rgb(180, 180, 180);
+}
+
+.renderContainer {
+  background-color: lightgreen;
+  width: 120vw;
+}
+
+.buttonAddDel,
+.buttonShowHide {
+  width: 25px;
+  height: 25px;
+}
+
+/* .editSection > * > label {
   font-size: 10pt;
 }
 
@@ -24,22 +83,10 @@
   grid-template-columns: 0.8fr 1.2fr;
 }
 
-.renderContainer {
-  background-color: lightgreen;
-  width: 120vw;
-}
-
-.editSectionHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.buttonAddDel,
-.buttonShowHide {
-  width: 25px;
-  height: 25px;
-}
+.editSection > form > div {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+} */
 
 /* .logo {
   height: 6em;

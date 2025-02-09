@@ -5,8 +5,15 @@ import DeleteItemBtn from "./DeleteItemBtn";
 function EditEducationItem(props) {
   return (
     <>
-      <ShowHideBtn></ShowHideBtn>
-      <form>
+      <div className="editItemHeader">
+        <h3>Education 1</h3>
+        <div className="">
+          <AddItemBtn></AddItemBtn>
+          <DeleteItemBtn></DeleteItemBtn>
+          <ShowHideBtn></ShowHideBtn>
+        </div>
+      </div>
+      <div className="editEducationItem editInputContainer">
         <label>Institution Name</label>
         <input type="text" name="educationInstitution" required></input>
 
@@ -24,9 +31,7 @@ function EditEducationItem(props) {
 
         <label>GPA</label>
         <input type="text" name="educationGPA" required></input>
-      </form>
-      <AddItemBtn></AddItemBtn>
-      <DeleteItemBtn></DeleteItemBtn>
+      </div>
     </>
   );
 }

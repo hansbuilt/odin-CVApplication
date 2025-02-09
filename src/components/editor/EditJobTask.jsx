@@ -1,17 +1,15 @@
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 
-function EditJobTask({ children }) {
+function EditJobTask() {
   return (
-    <>
-      <form>
-        <label>Task</label>
-        <input type="text" name="jobTask" required></input>
-      </form>
-      <AddItemBtn></AddItemBtn>
-      <DeleteItemBtn></DeleteItemBtn>
-      {children}
-    </>
+    <div className="editJobTask editBulletItem">
+      <input type="text" name="jobTask" required></input>
+      <div>
+        <AddItemBtn></AddItemBtn>
+        <DeleteItemBtn></DeleteItemBtn>
+      </div>
+    </div>
   );
 }
 
