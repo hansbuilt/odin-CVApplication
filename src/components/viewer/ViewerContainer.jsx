@@ -1,6 +1,7 @@
 import ResumeHeader from "./ResumeHeader";
 import ResumeEducationContainer from "./ResumeEducationContainer";
 import ResumeExperienceContainer from "./ResumeExperienceContainer";
+import ResumeSkillsContainer from "./ResumeSkillsContainer";
 
 function ViewerContainer({ children }) {
   //   const [scale, setScale] = useState(1);
@@ -23,6 +24,7 @@ function ViewerContainer({ children }) {
         <ResumeHeader></ResumeHeader>
         <ResumeEducationContainer></ResumeEducationContainer>
         <ResumeExperienceContainer></ResumeExperienceContainer>
+        <ResumeSkillsContainer></ResumeSkillsContainer>
       </div>
     </div>
   );

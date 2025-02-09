@@ -12,6 +12,7 @@ function ResumeExperienceItem({ name, location }) {
         name="Engineer 1"
         dates="mm/dd"
       ></ResumeExperienceJob>
+      <span className="spacer"></span>
     </div>
   );
 }

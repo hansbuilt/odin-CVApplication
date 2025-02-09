@@ -13,6 +13,7 @@ function ResumeEducationContainer({ name, children }) {
         gpa="GPA 4.0"
       ></ResumeEducationItem>
       {children}
+      <span className="spacer"></span>
     </ResumeSectionContainer>
   );
 }

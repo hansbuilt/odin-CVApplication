@@ -4,6 +4,7 @@
   background-color: white;
   width: 816px;
   height: 1056px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .resumeContainer {
@@ -55,11 +56,11 @@
 
 .resumeSectionName {
   font-weight: bold;
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 
 .resumeSectionContent {
-  background-color: lightyellow;
+  /* background-color: lightyellow; */
 }
 
 .institutionName,
@@ -69,4 +70,11 @@
 
 .companyJobHeader {
   font-style: italic;
+}
+
+.spacer {
+  font-size: 10pt;
+  line-height: 1em;
+  display: inline-block;
+  width: 1px;
 }
