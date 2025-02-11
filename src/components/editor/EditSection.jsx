@@ -1,13 +1,19 @@
+import { useState } from "react";
 import ShowHideBtn from "./ShowHideBtn";
 
 function EditSection({ name, children }) {
+  const [isVisible, setIsVisible] = useState(true);
+
   return (
     <div className="editSection">
       <div className="editSectionHeader">
         <h2>{name}</h2>
-        <ShowHideBtn></ShowHideBtn>
+        <ShowHideBtn
+          isVisible={isVisible}
+          toggle={() => setIsVisible(!isVisible)}
+        ></ShowHideBtn>
       </div>
-      <form className="editSectionBody">{children}</form>
+      {isVisible && <form className="editSectionBody">{children}</form>}
     </div>
   );
 }
