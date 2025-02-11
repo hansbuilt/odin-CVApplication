@@ -21,7 +21,18 @@ function ViewerContainer({ children }) {
   return (
     <div className="resumeContainer">
       <div className="resumeContent">
-        <ResumeHeader></ResumeHeader>
+        <ResumeHeader
+          firstName="John"
+          lastName="Doe"
+          addressLine1="123 Main St"
+          addressLine2="Room 101"
+          city="Anytown"
+          state="USA"
+          zip="12345"
+          phone="555-555-5555"
+          email="example@example.com"
+        ></ResumeHeader>
+
         <ResumeEducationContainer></ResumeEducationContainer>
         <ResumeExperienceContainer></ResumeExperienceContainer>
         <ResumeSkillsContainer></ResumeSkillsContainer>

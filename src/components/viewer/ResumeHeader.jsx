@@ -1,11 +1,35 @@
-function ResumeHeader() {
+function ResumeHeader({
+  firstName,
+  lastName,
+  addressLine1,
+  addressLine2,
+  city,
+  state,
+  zip,
+  phone,
+  email,
+}) {
+  const headerLine1 = firstName + " " + lastName;
+  const headerLine2 =
+    addressLine1 +
+    ", " +
+    addressLine2 +
+    ", " +
+    city +
+    ", " +
+    state +
+    " " +
+    zip +
+    " • " +
+    phone +
+    " • " +
+    email;
+
   return (
     <div>
       <div className="resumeHeader">
-        <div className="resumeHeaderName">John Doe</div>
-        <div className="resumeHeaderContact">
-          123 Main St, Anytown, USA 12345 • 555-555-5555 • email@example.com
-        </div>
+        <div className="resumeHeaderName">{headerLine1}</div>
+        <div className="resumeHeaderContact">{headerLine2}</div>
       </div>
       <span className="spacer"></span>
     </div>
