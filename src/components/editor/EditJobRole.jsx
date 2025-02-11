@@ -11,7 +11,6 @@ function EditJobRole({ children }) {
         <div>
           <AddItemBtn></AddItemBtn>
           <DeleteItemBtn></DeleteItemBtn>
-          <ShowHideBtn></ShowHideBtn>
         </div>
       </div>
       <div className="editInputContainer">
