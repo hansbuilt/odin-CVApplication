@@ -1,8 +1,11 @@
+import { useState } from "react";
 import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 
-function EditEducationItem(props) {
+function EditEducationItem() {
+  const [isVisible, setIsVisible] = useState(true);
+
   return (
     <div className="editEducationItem">
       <div className="editItemHeader">
@@ -10,28 +13,33 @@ function EditEducationItem(props) {
         <div className="">
           <AddItemBtn></AddItemBtn>
           <DeleteItemBtn></DeleteItemBtn>
-          <ShowHideBtn></ShowHideBtn>
+          <ShowHideBtn
+            isVisible={isVisible}
+            toggle={() => setIsVisible(!isVisible)}
+          ></ShowHideBtn>
         </div>
       </div>
-      <div className="editInputContainer">
-        <label>Institution Name</label>
-        <input type="text" name="educationInstitution" required></input>
+      {isVisible && (
+        <div className="editInputContainer">
+          <label>Institution Name</label>
+          <input type="text" name="educationInstitution" required></input>
 
-        <label>Institution Location</label>
-        <input type="text" name="educationLocation" required></input>
+          <label>Institution Location</label>
+          <input type="text" name="educationLocation" required></input>
 
-        <label>Degree</label>
-        <input type="text" name="educationDegree" required></input>
+          <label>Degree</label>
+          <input type="text" name="educationDegree" required></input>
 
-        <label>Graduation MM/YY</label>
-        <input type="text" name="educationDates" required></input>
+          <label>Graduation MM/YY</label>
+          <input type="text" name="educationDates" required></input>
 
-        <label>Majors</label>
-        <input type="text" name="educationMajors" required></input>
+          <label>Majors</label>
+          <input type="text" name="educationMajors" required></input>
 
-        <label>GPA</label>
-        <input type="text" name="educationGPA" required></input>
-      </div>
+          <label>GPA</label>
+          <input type="text" name="educationGPA" required></input>
+        </div>
+      )}
     </div>
   );
 }

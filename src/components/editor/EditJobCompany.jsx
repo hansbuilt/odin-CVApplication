@@ -1,9 +1,12 @@
+import { useState } from "react";
 import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
 
 function EditJobCompany({ children }) {
+  const [isVisible, setIsVisible] = useState(true);
+
   return (
     <div className="editJobCompany">
       <div className="editItemHeader">
@@ -11,23 +14,27 @@ function EditJobCompany({ children }) {
         <div>
           <AddItemBtn></AddItemBtn>
           <DeleteItemBtn></DeleteItemBtn>
-          <ShowHideBtn></ShowHideBtn>
+          <ShowHideBtn
+            isVisible={isVisible}
+            toggle={() => setIsVisible(!isVisible)}
+          ></ShowHideBtn>
         </div>
       </div>
+      {isVisible && (
+        <div className="editCompanyBody">
+          <div className="editInputContainer">
+            <label>Company Name</label>
+            <input type="text" name="jobCompany" required></input>
 
-      <div className="editCompanyBody">
-        <div className="editInputContainer">
-          <label>Company Name</label>
-          <input type="text" name="jobCompany" required></input>
+            <label>Location</label>
+            <input type="text" name="jobLocation" required></input>
+          </div>
 
-          <label>Location</label>
-          <input type="text" name="jobLocation" required></input>
+          <EditJobRole></EditJobRole>
+          <EditJobRole></EditJobRole>
+          {children}
         </div>
-
-        <EditJobRole></EditJobRole>
-        <EditJobRole></EditJobRole>
-        {children}
-      </div>
+      )}
     </div>
   );
 }
