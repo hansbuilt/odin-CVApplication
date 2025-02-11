@@ -1,6 +1,6 @@
 function ShowHideBtn({ isVisible, toggle }) {
   return (
-    <button className="buttonShowHide" onClick={toggle}>
+    <button type="button" className="buttonShowHide" onClick={toggle}>
       {isVisible ? "Hide" : "Show"}
     </button>
   );
