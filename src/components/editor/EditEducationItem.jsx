@@ -3,7 +3,7 @@ import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 
-function EditEducationItem() {
+function EditEducationItem({ id, onAdd, onDelete }) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -11,8 +11,8 @@ function EditEducationItem() {
       <div className="editItemHeader">
         <h3>Education 1</h3>
         <div className="">
-          <AddItemBtn></AddItemBtn>
-          <DeleteItemBtn></DeleteItemBtn>
+          <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
+          <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
           <ShowHideBtn
             isVisible={isVisible}
             toggle={() => setIsVisible(!isVisible)}

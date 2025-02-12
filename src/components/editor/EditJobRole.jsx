@@ -3,14 +3,14 @@ import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobTask from "./EditJobTask";
 
-function EditJobRole({ children }) {
+function EditJobRole({ id, onAdd, onDelete }) {
   return (
     <div className="editJobRole">
       <div className="editItemHeader">
         <h4>Job 1</h4>
         <div>
-          <AddItemBtn></AddItemBtn>
-          <DeleteItemBtn></DeleteItemBtn>
+          <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
+          <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
         </div>
       </div>
       <div className="editInputContainer">
@@ -21,8 +21,8 @@ function EditJobRole({ children }) {
         <input type="text" name="jobDates" required></input>
       </div>
       <label>Tasks:</label>
-      <EditJobTask></EditJobTask>
-      {children}
+      {/* <EditJobTask></EditJobTask>
+      {children} */}
     </div>
   );
 }

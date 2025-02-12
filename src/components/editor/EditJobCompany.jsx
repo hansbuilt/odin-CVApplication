@@ -4,7 +4,7 @@ import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
 
-function EditJobCompany({ children }) {
+function EditJobCompany({ id, onAdd, onDelete }) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -12,8 +12,8 @@ function EditJobCompany({ children }) {
       <div className="editItemHeader">
         <h3>Company 1</h3>
         <div>
-          <AddItemBtn></AddItemBtn>
-          <DeleteItemBtn></DeleteItemBtn>
+          <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
+          <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
           <ShowHideBtn
             isVisible={isVisible}
             toggle={() => setIsVisible(!isVisible)}
@@ -31,8 +31,7 @@ function EditJobCompany({ children }) {
           </div>
 
           <EditJobRole></EditJobRole>
-          <EditJobRole></EditJobRole>
-          {children}
+          {/* {children} */}
         </div>
       )}
     </div>

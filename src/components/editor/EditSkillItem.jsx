@@ -1,13 +1,13 @@
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 
-function EditSkillItem(props) {
+function EditSkillItem({ id, onAdd, onDelete }) {
   return (
     <div className="editBulletItem">
       <input type="text" name="jobTask" required></input>
       <div>
-        <AddItemBtn></AddItemBtn>
-        <DeleteItemBtn></DeleteItemBtn>
+        <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
+        <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
       </div>
     </div>
   );

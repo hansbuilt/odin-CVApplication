@@ -8,6 +8,7 @@ import EditGeneralInfo from "./components/editor/EditGeneralInfo";
 import EditEducationItem from "./components/editor/EditEducationItem";
 import EditJobCompany from "./components/editor/EditJobCompany";
 import EditSkillsList from "./components/editor/EditSkillList";
+import EditSkillItem from "./components/editor/EditSkillItem";
 import ViewerContainer from "./components/viewer/ViewerContainer";
 
 function App() {
@@ -17,19 +18,19 @@ function App() {
     <>
       <div className="editContainer">
         <h1>Resume Builder App</h1>
-        <EditSection name="General Info">
-          <EditGeneralInfo></EditGeneralInfo>
+        <EditSection name="General Info" Component={EditGeneralInfo}>
+          {/* <EditGeneralInfo></EditGeneralInfo> */}
         </EditSection>
 
-        <EditSection name="Education">
-          <EditEducationItem></EditEducationItem>
+        <EditSection name="Education" Component={EditEducationItem}>
+          {/* <EditEducationItem></EditEducationItem> */}
         </EditSection>
 
-        <EditSection name="Experience">
+        <EditSection name="Experience" Component={EditJobCompany}>
           <EditJobCompany></EditJobCompany>
         </EditSection>
 
-        <EditSection name="Skills & Interests">
+        <EditSection name="Skills & Interests" Component={EditSkillItem}>
           <EditSkillsList></EditSkillsList>
         </EditSection>
       </div>
