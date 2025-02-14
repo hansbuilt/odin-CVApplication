@@ -31,14 +31,15 @@ function EditSection({ name, Component }) {
           toggle={() => setIsVisible(!isVisible)}
         ></ShowHideBtn>
       </div>
-      {children.map((child) => (
-        <Component
-          key={child.id}
-          id={child.id}
-          onAdd={addChild}
-          onDelete={deleteChild}
-        />
-      ))}
+      {isVisible &&
+        children.map((child) => (
+          <Component
+            key={child.id}
+            id={child.id}
+            onAdd={addChild}
+            onDelete={deleteChild}
+          />
+        ))}
       {/* {isVisible && <form className="editSectionBody">{children}</form>} */}
     </div>
   );
