@@ -19,27 +19,25 @@ function EditEducationItem({ id, onAdd, onDelete }) {
           ></ShowHideBtn>
         </div>
       </div>
-      {isVisible && (
-        <div className="editInputContainer">
-          <label>Institution Name</label>
-          <input type="text" name="educationInstitution" required></input>
+      <div className={`editInputContainer ${isVisible ? "" : "hidden"}`}>
+        <label>Institution Name</label>
+        <input type="text" name="educationInstitution" required></input>
 
-          <label>Institution Location</label>
-          <input type="text" name="educationLocation" required></input>
+        <label>Institution Location</label>
+        <input type="text" name="educationLocation" required></input>
 
-          <label>Degree</label>
-          <input type="text" name="educationDegree" required></input>
+        <label>Degree</label>
+        <input type="text" name="educationDegree" required></input>
 
-          <label>Graduation MM/YY</label>
-          <input type="text" name="educationDates" required></input>
+        <label>Graduation MM/YY</label>
+        <input type="text" name="educationDates" required></input>
 
-          <label>Majors</label>
-          <input type="text" name="educationMajors" required></input>
+        <label>Majors</label>
+        <input type="text" name="educationMajors" required></input>
 
-          <label>GPA</label>
-          <input type="text" name="educationGPA" required></input>
-        </div>
-      )}
+        <label>GPA</label>
+        <input type="text" name="educationGPA" required></input>
+      </div>
     </div>
   );
 }
