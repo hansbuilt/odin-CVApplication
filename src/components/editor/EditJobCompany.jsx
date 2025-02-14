@@ -3,9 +3,27 @@ import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
+import randomUUID from "crypto";
 
 function EditJobCompany({ id, onAdd, onDelete }) {
   const [isVisible, setIsVisible] = useState(true);
+
+  const [children, setChildren] = useState([{ id: 1 }]);
+
+  const addChild = (id) => {
+    const index = children.findIndex((comp) => comp.id === id);
+    const newChild = { id: crypto.randomUUID() };
+    const updatedChildren = [
+      ...children.slice(0, index + 1),
+      newChild,
+      ...children.slice(index + 1),
+    ];
+    setChildren(updatedChildren);
+  };
+
+  const deleteChild = (id) => {
+    setChildren((prev) => prev.filter((comp) => comp.id !== id));
+  };
 
   return (
     <div className="editJobCompany">
@@ -20,8 +38,8 @@ function EditJobCompany({ id, onAdd, onDelete }) {
           ></ShowHideBtn>
         </div>
       </div>
-      {isVisible && (
-        <div className="editCompanyBody">
+      {
+        <div className={`editCompanyBody ${isVisible ? "hidden" : ""}`}>
           <div className="editInputContainer">
             <label>Company Name</label>
             <input type="text" name="jobCompany" required></input>
@@ -29,11 +47,19 @@ function EditJobCompany({ id, onAdd, onDelete }) {
             <label>Location</label>
             <input type="text" name="jobLocation" required></input>
           </div>
-
-          <EditJobRole></EditJobRole>
-          {/* {children} */}
+          {
+            /*isVisible &&*/
+            children.map((child) => (
+              <EditJobRole
+                key={child.id}
+                id={child.id}
+                onAdd={addChild}
+                onDelete={deleteChild}
+              ></EditJobRole>
+            ))
+          }
         </div>
-      )}
+      }
     </div>
   );
 }

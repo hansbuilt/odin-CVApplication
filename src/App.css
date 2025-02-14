@@ -9,6 +9,10 @@
   /* max-width: 1280px; */
 }
 
+.hidden {
+  display: none;
+}
+
 .editContainer {
   background-color: lightblue;
   width: 80vw;

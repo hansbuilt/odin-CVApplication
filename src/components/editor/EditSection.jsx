@@ -31,8 +31,8 @@ function EditSection({ name, Component }) {
           toggle={() => setIsVisible(!isVisible)}
         ></ShowHideBtn>
       </div>
-      {isVisible &&
-        children.map((child) => (
+      <div className={isVisible ? "hidden" : ""}>
+        {children.map((child) => (
           <Component
             key={child.id}
             id={child.id}
@@ -40,6 +40,7 @@ function EditSection({ name, Component }) {
             onDelete={deleteChild}
           />
         ))}
+      </div>
       {/* {isVisible && <form className="editSectionBody">{children}</form>} */}
     </div>
   );
