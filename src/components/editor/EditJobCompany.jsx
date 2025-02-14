@@ -39,7 +39,7 @@ function EditJobCompany({ id, onAdd, onDelete }) {
         </div>
       </div>
       {
-        <div className={`editCompanyBody ${isVisible ? "hidden" : ""}`}>
+        <div className={`editCompanyBody ${isVisible ? "" : "hidden"}`}>
           <div className="editInputContainer">
             <label>Company Name</label>
             <input type="text" name="jobCompany" required></input>

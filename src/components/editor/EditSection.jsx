@@ -31,7 +31,7 @@ function EditSection({ name, Component }) {
           toggle={() => setIsVisible(!isVisible)}
         ></ShowHideBtn>
       </div>
-      <div className={isVisible ? "hidden" : ""}>
+      <div className={isVisible ? "" : "hidden"}>
         {children.map((child) => (
           <Component
             key={child.id}
