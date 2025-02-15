@@ -3,7 +3,7 @@ import ResumeEducationContainer from "./ResumeEducationContainer";
 import ResumeExperienceContainer from "./ResumeExperienceContainer";
 import ResumeSkillsContainer from "./ResumeSkillsContainer";
 
-function ViewerContainer({ children }) {
+function ViewerContainer({ children, formData }) {
   //   const [scale, setScale] = useState(1);
 
   //   useEffect(() => {
@@ -22,15 +22,15 @@ function ViewerContainer({ children }) {
     <div className="resumeContainer">
       <div className="resumeContent">
         <ResumeHeader
-          firstName="John"
-          lastName="Doe"
-          addressLine1="123 Main St"
-          addressLine2="Room 101"
-          city="Anytown"
-          state="USA"
-          zip="12345"
-          phone="555-555-5555"
-          email="example@example.com"
+          firstName={formData.generalInfo.firstName}
+          lastName={formData.generalInfo.lastName}
+          addressLine1={formData.generalInfo.addressLine1}
+          addressLine2={formData.generalInfo.addressLine2}
+          city={formData.generalInfo.city}
+          state={formData.generalInfo.state}
+          zipcode={formData.generalInfo.zipcode}
+          phoneNumber={formData.generalInfo.phoneNumber}
+          email={formData.generalInfo.email}
         ></ResumeHeader>
 
         <ResumeEducationContainer></ResumeEducationContainer>
