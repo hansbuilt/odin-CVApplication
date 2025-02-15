@@ -2,7 +2,7 @@ import { Component, useState } from "react";
 import ShowHideBtn from "./ShowHideBtn";
 import randomUUID from "crypto";
 
-function EditSection({ name, Component }) {
+function EditSection({ name, Component, formData, onInputChange }) {
   const [isVisible, setIsVisible] = useState(true);
 
   const [children, setChildren] = useState([{ id: 1 }]);
@@ -22,6 +22,11 @@ function EditSection({ name, Component }) {
     setChildren((prev) => prev.filter((comp) => comp.id !== id));
   };
 
+  const handleChildDataChange = (name, value) => {
+    // onInputChange({ target: { name, value } });
+    onInputChange(name, value);
+  };
+
   return (
     <div className="editSection">
       <div className="editSectionHeader">
@@ -38,6 +43,7 @@ function EditSection({ name, Component }) {
             id={child.id}
             onAdd={addChild}
             onDelete={deleteChild}
+            onDataChange={handleChildDataChange}
           />
         ))}
       </div>
