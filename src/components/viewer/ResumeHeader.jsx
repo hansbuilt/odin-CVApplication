@@ -5,8 +5,8 @@ function ResumeHeader({
   addressLine2,
   city,
   state,
-  zip,
-  phone,
+  zipcode,
+  phoneNumber,
   email,
 }) {
   const headerLine1 = firstName + " " + lastName;
@@ -19,9 +19,9 @@ function ResumeHeader({
     ", " +
     state +
     " " +
-    zip +
+    zipcode +
     " • " +
-    phone +
+    phoneNumber +
     " • " +
     email;
 
