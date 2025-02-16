@@ -1,12 +1,14 @@
+// remove this item????
+
 import EditSkillItem from "./EditSkillItem";
 
-function EditSkillsList({ children }) {
+function EditSkillsList({ onDataChange }) {
   return (
     <div className="editSkillsList">
+      {/* <EditSkillItem></EditSkillItem>
       <EditSkillItem></EditSkillItem>
-      <EditSkillItem></EditSkillItem>
-      <EditSkillItem></EditSkillItem>
-      {children}
+      <EditSkillItem></EditSkillItem> */}
+      {/* {children} */}
     </div>
   );
 }
