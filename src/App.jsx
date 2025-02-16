@@ -24,9 +24,9 @@ function App() {
       phoneNumber: "",
       email: "",
     },
-    educationData: [],
-    experienceData: [],
-    skillsData: [],
+    educationData: [{ id: 1 }],
+    experienceData: [{ id: 1 }],
+    skillsData: [{ id: 1 }],
   });
 
   const updateNestedState = (obj, path, value) => {
