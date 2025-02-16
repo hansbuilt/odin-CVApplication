@@ -1,12 +1,13 @@
 import ResumeSectionContainer from "./ResumeSectionContainer";
 import ResumeSkillItem from "./ResumeSkillItem";
 
-function ResumeSkillsContainer({ name, children }) {
+function ResumeSkillsContainer({ name, data /*children*/ }) {
   return (
     <ResumeSectionContainer name="Skills & Interests">
-      <ResumeSkillItem text="Github, React"></ResumeSkillItem>
-
-      {children}
+      {data.map((item) => (
+        <ResumeSkillItem key={item.id} text={item.text}></ResumeSkillItem>
+      ))}
+      {/* {children} */}
     </ResumeSectionContainer>
   );
 }

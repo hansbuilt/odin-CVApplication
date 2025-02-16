@@ -3,7 +3,7 @@ import ResumeEducationContainer from "./ResumeEducationContainer";
 import ResumeExperienceContainer from "./ResumeExperienceContainer";
 import ResumeSkillsContainer from "./ResumeSkillsContainer";
 
-function ViewerContainer({ children, formData }) {
+function ViewerContainer({ /*children,*/ formData }) {
   //   const [scale, setScale] = useState(1);
 
   //   useEffect(() => {
@@ -35,7 +35,9 @@ function ViewerContainer({ children, formData }) {
 
         <ResumeEducationContainer></ResumeEducationContainer>
         <ResumeExperienceContainer></ResumeExperienceContainer>
-        <ResumeSkillsContainer></ResumeSkillsContainer>
+        <ResumeSkillsContainer
+          data={formData.skillsData}
+        ></ResumeSkillsContainer>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import EditSection from "./components/editor/EditSection";
 import EditGeneralInfo from "./components/editor/EditGeneralInfo";
 import EditEducationItem from "./components/editor/EditEducationItem";
 import EditJobCompany from "./components/editor/EditJobCompany";
-import EditSkillsList from "./components/editor/EditSkillList";
+// import EditSkillsList from "./components/editor/EditSkillList";
 import EditSkillItem from "./components/editor/EditSkillItem";
 import ViewerContainer from "./components/viewer/ViewerContainer";
 
@@ -24,6 +24,10 @@ function App() {
       phoneNumber: "",
       email: "",
     },
+    educationData: [],
+    experienceData: [],
+    skillsData: [],
+
     // educationData: {
     //   institution: "",
     //   location: "",
@@ -58,6 +62,32 @@ function App() {
     setFormData((prev) => updateNestedState(prev, name, value));
   };
 
+  const handleChildAdd = (obj, key) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: [...prev[key], obj],
+    }));
+  };
+
+  const handleChildDelete = (id, key) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: prev[key].filter((child) => child.id !== id),
+    }));
+  };
+
+  const handleChildUpdate = (key, id, newText) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: prev[key].map((child) =>
+        child.id === id ? { ...child, text: newText } : child
+      ),
+    }));
+  };
+
+  // const handleChildUpdate = (id, text) => {
+  // }
+
   return (
     <>
       <div className="editContainer">
@@ -79,8 +109,16 @@ function App() {
           <EditJobCompany></EditJobCompany>
         </EditSection>
 
-        <EditSection name="Skills & Interests" Component={EditSkillItem}>
-          <EditSkillsList></EditSkillsList>
+        <EditSection
+          name="Skills & Interests"
+          Component={EditSkillItem}
+          formData={formData}
+          onInputChange={handleInputChange}
+          onChildAdd={handleChildAdd}
+          onChildUpdate={handleChildUpdate}
+          onChildDelete={handleChildDelete}
+        >
+          {/* <EditSkillsList></EditSkillsList> */}
         </EditSection>
       </div>
       <div className="renderContainer">
