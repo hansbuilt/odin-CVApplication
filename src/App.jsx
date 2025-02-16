@@ -100,7 +100,15 @@ function App() {
           onChildDelete={handleChildDelete}
         ></EditSection>
 
-        <EditSection name="Experience" Component={EditJobCompany}>
+        <EditSection
+          name="Experience"
+          Component={EditJobCompany}
+          formData={formData}
+          onInputChange={handleInputChange}
+          onChildAdd={handleChildAdd}
+          onChildUpdate={handleChildUpdate}
+          onChildDelete={handleChildDelete}
+        >
           <EditJobCompany></EditJobCompany>
         </EditSection>
 

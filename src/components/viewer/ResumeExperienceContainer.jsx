@@ -1,15 +1,16 @@
 import ResumeSectionContainer from "./ResumeSectionContainer";
 import ResumeExperienceItem from "./ResumeExperienceItem";
 
-function ResumeExperienceContainer({ name, children }) {
+function ResumeExperienceContainer({ name, data }) {
   return (
     <ResumeSectionContainer name="Experience">
-      <ResumeExperienceItem
-        name="Acme Corporation"
-        location="Anytown, USA"
-      ></ResumeExperienceItem>
-
-      {children}
+      {data.map((item) => (
+        <ResumeExperienceItem
+          key={item.id}
+          name={item.jobCompany}
+          location={item.jobLocation}
+        ></ResumeExperienceItem>
+      ))}
     </ResumeSectionContainer>
   );
 }

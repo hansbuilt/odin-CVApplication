@@ -5,7 +5,7 @@ import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
 import randomUUID from "crypto";
 
-function EditJobCompany({ id, onAdd, onDelete }) {
+function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
   const [isVisible, setIsVisible] = useState(true);
 
   const [children, setChildren] = useState([{ id: 1 }]);
@@ -42,10 +42,34 @@ function EditJobCompany({ id, onAdd, onDelete }) {
         <div className={`editCompanyBody ${isVisible ? "" : "hidden"}`}>
           <div className="editInputContainer">
             <label>Company Name</label>
-            <input type="text" name="jobCompany" required></input>
+            <input
+              type="text"
+              name="jobCompany"
+              placeholder="Enter company name"
+              onChange={(e) =>
+                onDataChange(
+                  "experienceData",
+                  id,
+                  e.target.name,
+                  e.target.value
+                )
+              }
+            ></input>
 
             <label>Location</label>
-            <input type="text" name="jobLocation" required></input>
+            <input
+              type="text"
+              name="jobLocation"
+              placeholder="Enter company location"
+              onChange={(e) =>
+                onDataChange(
+                  "experienceData",
+                  id,
+                  e.target.name,
+                  e.target.value
+                )
+              }
+            ></input>
           </div>
           {
             /*isVisible &&*/
