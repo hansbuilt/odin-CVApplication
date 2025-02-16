@@ -33,7 +33,9 @@ function ViewerContainer({ /*children,*/ formData }) {
           email={formData.generalInfo.email}
         ></ResumeHeader>
 
-        <ResumeEducationContainer></ResumeEducationContainer>
+        <ResumeEducationContainer
+          data={formData.educationData}
+        ></ResumeEducationContainer>
         <ResumeExperienceContainer></ResumeExperienceContainer>
         <ResumeSkillsContainer
           data={formData.skillsData}

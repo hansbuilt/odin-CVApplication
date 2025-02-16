@@ -27,15 +27,6 @@ function App() {
     educationData: [],
     experienceData: [],
     skillsData: [],
-
-    // educationData: {
-    //   institution: "",
-    //   location: "",
-    //   degree: "",
-    //   graduationDate: "",
-    //   majors: "",
-    //   gpa: "",
-    // },
   });
 
   const updateNestedState = (obj, path, value) => {
@@ -76,11 +67,11 @@ function App() {
     }));
   };
 
-  const handleChildUpdate = (key, id, newText) => {
+  const handleChildUpdate = (key, id, field, newValue) => {
     setFormData((prev) => ({
       ...prev,
       [key]: prev[key].map((child) =>
-        child.id === id ? { ...child, text: newText } : child
+        child.id === id ? { ...child, [field]: newValue } : child
       ),
     }));
   };
@@ -97,13 +88,17 @@ function App() {
           Component={EditGeneralInfo}
           formData={formData}
           onInputChange={handleInputChange}
-        >
-          {/* <EditGeneralInfo></EditGeneralInfo> */}
-        </EditSection>
+        ></EditSection>
 
-        <EditSection name="Education" Component={EditEducationItem}>
-          {/* <EditEducationItem></EditEducationItem> */}
-        </EditSection>
+        <EditSection
+          name="Education"
+          Component={EditEducationItem}
+          formData={formData}
+          onInputChange={handleInputChange}
+          onChildAdd={handleChildAdd}
+          onChildUpdate={handleChildUpdate}
+          onChildDelete={handleChildDelete}
+        ></EditSection>
 
         <EditSection name="Experience" Component={EditJobCompany}>
           <EditJobCompany></EditJobCompany>
@@ -117,9 +112,7 @@ function App() {
           onChildAdd={handleChildAdd}
           onChildUpdate={handleChildUpdate}
           onChildDelete={handleChildDelete}
-        >
-          {/* <EditSkillsList></EditSkillsList> */}
-        </EditSection>
+        ></EditSection>
       </div>
       <div className="renderContainer">
         <ViewerContainer formData={formData}></ViewerContainer>

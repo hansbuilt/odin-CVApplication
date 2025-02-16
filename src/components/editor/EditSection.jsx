@@ -15,6 +15,18 @@ function EditSection({
 
   const [children, setChildren] = useState([{ id: 1 }]);
 
+  const componentMap = {
+    EditGeneralInfo: "generalInfo",
+    EditEducationItem: "educationData",
+    EditJobCompany: "experienceData",
+    EditSkillItem: "skillsData",
+  };
+
+  const getComponentDataKey = (Component) => {
+    const componentName = Component.displayName || Component.name || "n/a";
+    return componentMap[componentName] || "not found";
+  };
+
   const addChild = (id) => {
     const index = children.findIndex((comp) => comp.id === id);
     const newChild = { id: crypto.randomUUID() };
@@ -25,17 +37,21 @@ function EditSection({
     ];
     setChildren(updatedChildren);
     //this needs to be unhardcoded
-    onChildAdd(newChild, "skillsData");
+    onChildAdd(newChild, getComponentDataKey(Component));
   };
 
   const deleteChild = (id) => {
     setChildren((prev) => prev.filter((comp) => comp.id !== id));
     //this needs to be unhardcoded
-    onChildDelete(id, "skillsData");
+    onChildDelete(id, getComponentDataKey(Component));
   };
 
-  const handleChildDataChange = (key, id, newText) => {
-    onChildUpdate(key, id, newText);
+  const handleChildDataChange = (key, id, field, newText) => {
+    onChildUpdate(key, id, field, newText);
+  };
+
+  const handleInputUpdate = (name, value) => {
+    onInputChange(name, value);
   };
 
   return (
@@ -55,6 +71,7 @@ function EditSection({
             onAdd={addChild}
             onDelete={deleteChild}
             onDataChange={handleChildDataChange}
+            onInputChange={handleInputUpdate}
           />
         ))}
       </div>
