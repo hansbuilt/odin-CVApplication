@@ -108,9 +108,7 @@ function App() {
           onChildAdd={handleChildAdd}
           onChildUpdate={handleChildUpdate}
           onChildDelete={handleChildDelete}
-        >
-          <EditJobCompany></EditJobCompany>
-        </EditSection>
+        ></EditSection>
 
         <EditSection
           name="Skills & Interests"
