@@ -12,8 +12,28 @@ import EditSkillItem from "./components/editor/EditSkillItem";
 import ViewerContainer from "./components/viewer/ViewerContainer";
 
 function App() {
+  // const [formData, setFormData] = useState({
+  //   generalInfo: {
+  //     firstName: "",
+  //     lastName: "",
+  //     addressLine1: "",
+  //     addressLine2: "",
+  //     city: "",
+  //     state: "",
+  //     zipcode: "",
+  //     phoneNumber: "",
+  //     email: "",
+  //   },
+  //   educationData: [{ id: 1 }],
+  //   experienceData: [{ id: 1 }],
+  //   skillsData: [{ id: 1 }],
+  // });
+
   const [formData, setFormData] = useState({
     generalInfo: {
+      id: "generalData",
+      type: "contianer",
+      children: [],
       firstName: "",
       lastName: "",
       addressLine1: "",
@@ -24,57 +44,99 @@ function App() {
       phoneNumber: "",
       email: "",
     },
-    educationData: [{ id: 1 }],
-    experienceData: [{ id: 1 }],
-    skillsData: [{ id: 1 }],
+    educationData: { id: "educationData", type: "container", children: [] },
+    experienceData: { id: "experienceData", type: "container", children: [] },
+    skillsData: { id: "skillsData", type: "container", children: [] },
+    // 1: { id: 1, type: "company", text: "Acme Corp", children: [2] },
+    // 2: { id: 2, type: "job", text: "Computer Programmer", children: [] },
   });
 
-  const updateNestedState = (obj, path, value) => {
-    //this function unpacks a dot notated variable location into an array, to updated a nested state object value
-    const keys = path.split(".");
-    let newObj = { ...obj };
+  const handleChildAdd = (obj, key, parentID) => {
+    setFormData((prev) => ({
+      ...prev,
 
-    let temp = newObj;
-    for (let i = 0; i < keys.length - 1; i++) {
-      temp[keys[i]] = { ...temp[keys[i]] };
-      temp = temp[keys[i]];
-    }
+      [parentID]: {
+        ...prev[parentID],
+        children: [...prev[parentID].children, key],
+      },
+      [key]: obj,
+    }));
 
-    temp[keys[keys.length - 1]] = value;
-
-    return newObj;
+    //need to figure out ordering
   };
+
+  const handleChildDelete = (key) => {
+    setFormData((prev) => {
+      const newData = { ...prev };
+      delete newData[key];
+
+      Object.keys(newData).forEach((id) => {
+        newData[id] = {
+          ...newData[id],
+          children: newData[id].children.filter((childID) => childID !== key),
+        };
+      });
+
+      //need to add recursive deletion of children
+
+      return newData;
+    });
+  };
+
+  const handleChildUpdate = (key, attribute, attributeValue) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: { ...prev[key], [attribute]: attributeValue },
+      // [key]: { ...prev[key], [attribute]: attributeValue },
+    }));
+  };
+
+  // const updateNestedState = (obj, path, value) => {
+  //   //this function unpacks a dot notated variable location into an array, to updated a nested state object value
+  //   const keys = path.split(".");
+  //   let newObj = { ...obj };
+
+  //   let temp = newObj;
+  //   for (let i = 0; i < keys.length - 1; i++) {
+  //     temp[keys[i]] = { ...temp[keys[i]] };
+  //     temp = temp[keys[i]];
+  //   }
+
+  //   temp[keys[keys.length - 1]] = value;
+
+  //   return newObj;
+  // };
 
   // const handleInputChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   // };
 
-  const handleInputChange = (name, value) => {
-    setFormData((prev) => updateNestedState(prev, name, value));
-  };
+  // const handleInputChange = (name, value) => {
+  //   setFormData((prev) => updateNestedState(prev, name, value));
+  // };
 
-  const handleChildAdd = (obj, key) => {
-    setFormData((prev) => ({
-      ...prev,
-      [key]: [...prev[key], obj],
-    }));
-  };
+  // const handleChildAdd = (obj, key) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [key]: [...prev[key], obj],
+  //   }));
+  // };
 
-  const handleChildDelete = (id, key) => {
-    setFormData((prev) => ({
-      ...prev,
-      [key]: prev[key].filter((child) => child.id !== id),
-    }));
-  };
+  // const handleChildDelete = (id, key) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [key]: prev[key].filter((child) => child.id !== id),
+  //   }));
+  // };
 
-  const handleChildUpdate = (key, id, field, newValue) => {
-    setFormData((prev) => ({
-      ...prev,
-      [key]: prev[key].map((child) =>
-        child.id === id ? { ...child, [field]: newValue } : child
-      ),
-    }));
-  };
+  // const handleChildUpdate = (key, id, field, newValue) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [key]: prev[key].map((child) =>
+  //       child.id === id ? { ...child, [field]: newValue } : child
+  //     ),
+  //   }));
+  // };
 
   // const handleChildUpdate = (id, text) => {
   // }
@@ -83,18 +145,21 @@ function App() {
     <>
       <div className="editContainer">
         <h1>Resume Builder App</h1>
+
         <EditSection
           name="General Info"
+          parentID="generalData"
           Component={EditGeneralInfo}
-          formData={formData}
-          onInputChange={handleInputChange}
+          // formData={formData}
+          onChildUpdate={handleChildUpdate}
         ></EditSection>
 
         <EditSection
           name="Education"
+          parentID="educationData"
           Component={EditEducationItem}
-          formData={formData}
-          onInputChange={handleInputChange}
+          // formData={formData}
+          // onInputChange={handleInputChange}
           onChildAdd={handleChildAdd}
           onChildUpdate={handleChildUpdate}
           onChildDelete={handleChildDelete}
@@ -102,9 +167,10 @@ function App() {
 
         <EditSection
           name="Experience"
+          parentID="experienceData"
           Component={EditJobCompany}
-          formData={formData}
-          onInputChange={handleInputChange}
+          // formData={formData2}
+          // onInputChange={handleInputChange}
           onChildAdd={handleChildAdd}
           onChildUpdate={handleChildUpdate}
           onChildDelete={handleChildDelete}
@@ -112,16 +178,17 @@ function App() {
 
         <EditSection
           name="Skills & Interests"
+          parentID="skillsData"
           Component={EditSkillItem}
-          formData={formData}
-          onInputChange={handleInputChange}
+          // formData={formData}
+          // onInputChange={handleInputChange}
           onChildAdd={handleChildAdd}
           onChildUpdate={handleChildUpdate}
           onChildDelete={handleChildDelete}
         ></EditSection>
       </div>
       <div className="renderContainer">
-        <ViewerContainer formData={formData}></ViewerContainer>
+        {/* <ViewerContainer formData={formData}></ViewerContainer> */}
       </div>
     </>
   );

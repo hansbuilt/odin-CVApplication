@@ -3,7 +3,7 @@ import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
-import randomUUID from "crypto";
+// import randomUUID from "crypto";
 
 function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
   const [isVisible, setIsVisible] = useState(true);
@@ -48,7 +48,7 @@ function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
               placeholder="Enter company name"
               onChange={(e) =>
                 onDataChange(
-                  "experienceData",
+                  // "experienceData",
                   id,
                   e.target.name,
                   e.target.value
@@ -63,7 +63,7 @@ function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
               placeholder="Enter company location"
               onChange={(e) =>
                 onDataChange(
-                  "experienceData",
+                  // "experienceData",
                   id,
                   e.target.name,
                   e.target.value

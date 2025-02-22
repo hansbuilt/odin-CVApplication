@@ -1,4 +1,4 @@
-function EditGeneralInfo({ onInputChange }) {
+function EditGeneralInfo({ onDataChange }) {
   return (
     <div className="editGeneralInfo">
       <div className="editInputContainer">
@@ -8,7 +8,7 @@ function EditGeneralInfo({ onInputChange }) {
           name="firstName"
           placeholder="Enter first name"
           onChange={(e) =>
-            onInputChange("generalInfo.firstName", e.target.value)
+            onDataChange("generalInfo", "firstName", e.target.value)
           }
         ></input>
 
@@ -18,7 +18,7 @@ function EditGeneralInfo({ onInputChange }) {
           name="lastName"
           placeholder="Enter last name"
           onChange={(e) =>
-            onInputChange("generalInfo.lastName", e.target.value)
+            onDataChange("generalInfo", "lastName", e.target.value)
           }
         ></input>
 
@@ -28,7 +28,7 @@ function EditGeneralInfo({ onInputChange }) {
           name="addressLine1"
           placeholder="ex. 123 Main St"
           onChange={(e) =>
-            onInputChange("generalInfo.addressLine1", e.target.value)
+            onDataChange("generalInfo", "addressLine1", e.target.value)
           }
         ></input>
 
@@ -38,7 +38,7 @@ function EditGeneralInfo({ onInputChange }) {
           name="addressLine2"
           placeholder=""
           onChange={(e) =>
-            onInputChange("generalInfo.addressLine2", e.target.value)
+            onDataChange("generalInfo", "addressLine2", e.target.value)
           }
         ></input>
 
@@ -47,7 +47,7 @@ function EditGeneralInfo({ onInputChange }) {
           type="text"
           name="city"
           placeholder="Enter city"
-          onChange={(e) => onInputChange("generalInfo.city", e.target.value)}
+          onChange={(e) => onDataChange("generalInfo", "city", e.target.value)}
         ></input>
 
         <label>State</label>
@@ -55,7 +55,7 @@ function EditGeneralInfo({ onInputChange }) {
           type="text"
           name="state"
           placeholder="Enter state"
-          onChange={(e) => onInputChange("generalInfo.state", e.target.value)}
+          onChange={(e) => onDataChange("generalInfo", "state", e.target.value)}
         ></input>
 
         <label>Zipcode</label>
@@ -63,7 +63,9 @@ function EditGeneralInfo({ onInputChange }) {
           type="text"
           name="zipcode"
           placeholder="Enter zipcode"
-          onChange={(e) => onInputChange("generalInfo.zipcode", e.target.value)}
+          onChange={(e) =>
+            onDataChange("generalInfo", "zipcode", e.target.value)
+          }
         ></input>
 
         <label>Phone No.</label>
@@ -72,7 +74,7 @@ function EditGeneralInfo({ onInputChange }) {
           name="phoneNumber"
           placeholder="ex. (555) 555-5555"
           onChange={(e) =>
-            onInputChange("generalInfo.phoneNumber", e.target.value)
+            onDataChange("generalInfo", "phoneNumber", e.target.value)
           }
         ></input>
 
@@ -81,7 +83,7 @@ function EditGeneralInfo({ onInputChange }) {
           type="text"
           name="email"
           placeholder="ex. example@example.com"
-          onChange={(e) => onInputChange("generalInfo.email", e.target.value)}
+          onChange={(e) => onDataChange("generalInfo", "email", e.target.value)}
         ></input>
       </div>
     </div>

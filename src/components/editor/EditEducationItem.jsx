@@ -26,7 +26,12 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationInstitution"
           placeholder="ex. UW-Anywhere"
           onChange={(e) =>
-            onDataChange("educationData", id, e.target.name, e.target.value)
+            onDataChange(
+              // "educationData",
+              id,
+              e.target.name,
+              e.target.value
+            )
           }
         ></input>
 
@@ -36,7 +41,12 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationLocation"
           placeholder="ex. Anytown, USA"
           onChange={(e) =>
-            onDataChange("educationData", id, e.target.name, e.target.value)
+            onDataChange(
+              // "educationData",
+              id,
+              e.target.name,
+              e.target.value
+            )
           }
         ></input>
 
@@ -46,7 +56,12 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationDegree"
           placeholder="ex. Bachelor of Business Administraton"
           onChange={(e) =>
-            onDataChange("educationData", id, e.target.name, e.target.value)
+            onDataChange(
+              // "educationData",
+              id,
+              e.target.name,
+              e.target.value
+            )
           }
         ></input>
 
@@ -56,7 +71,12 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationDates"
           placeholder="mm/yy-mm/yy, mm/yy, or yyyy"
           onChange={(e) =>
-            onDataChange("educationData", id, e.target.name, e.target.value)
+            onDataChange(
+              // "educationData",
+              id,
+              e.target.name,
+              e.target.value
+            )
           }
         ></input>
 
@@ -66,7 +86,12 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationMajors"
           placeholder="ex. Double Major, Finance and Marketing"
           onChange={(e) =>
-            onDataChange("educationData", id, e.target.name, e.target.value)
+            onDataChange(
+              // "educationData",
+              id,
+              e.target.name,
+              e.target.value
+            )
           }
         ></input>
 
@@ -76,7 +101,12 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationGPA"
           placeholder="ex. 4.0"
           onChange={(e) =>
-            onDataChange("educationData", id, e.target.name, e.target.value)
+            onDataChange(
+              // "educationData",
+              id,
+              e.target.name,
+              e.target.value
+            )
           }
         ></input>
       </div>
