@@ -5,24 +5,36 @@ import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
 // import randomUUID from "crypto";
 
-function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
+function EditJobCompany({
+  id,
+  parentID,
+  onAddSibling,
+  onUpdateSelf,
+  onDeleteSelf,
+  onChildAdd,
+  onChildUpdate,
+  onChildDelete,
+}) {
   const [isVisible, setIsVisible] = useState(true);
 
-  const [children, setChildren] = useState([{ id: 1 }]);
+  // const [children, setChildren] = useState([{ id: 1 }]);
+  const [children, setChildren] = useState([]);
 
-  const addChild = (id) => {
+  const addSiblingRole = (id) => {
     const index = children.findIndex((comp) => comp.id === id);
-    const newChild = { id: crypto.randomUUID() };
+    const newChild = { id: crypto.randomUUID(), type: "jobRole", children: [] };
     const updatedChildren = [
       ...children.slice(0, index + 1),
       newChild,
       ...children.slice(index + 1),
     ];
     setChildren(updatedChildren);
+    onChildAdd(newChild, newChild.id, parentID);
   };
 
-  const deleteChild = (id) => {
+  const deleteSelfRole = (id) => {
     setChildren((prev) => prev.filter((comp) => comp.id !== id));
+    onChildDelete(id);
   };
 
   return (
@@ -30,8 +42,8 @@ function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
       <div className="editItemHeader">
         <h3>Company 1</h3>
         <div>
-          <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
-          <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
+          <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+          <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
           <ShowHideBtn
             isVisible={isVisible}
             toggle={() => setIsVisible(!isVisible)}
@@ -46,14 +58,7 @@ function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
               type="text"
               name="jobCompany"
               placeholder="Enter company name"
-              onChange={(e) =>
-                onDataChange(
-                  // "experienceData",
-                  id,
-                  e.target.name,
-                  e.target.value
-                )
-              }
+              onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
             ></input>
 
             <label>Location</label>
@@ -61,27 +66,29 @@ function EditJobCompany({ id, onAdd, onDelete, onDataChange }) {
               type="text"
               name="jobLocation"
               placeholder="Enter company location"
-              onChange={(e) =>
-                onDataChange(
-                  // "experienceData",
-                  id,
-                  e.target.name,
-                  e.target.value
-                )
-              }
+              onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
             ></input>
           </div>
+
           {
             /*isVisible &&*/
             children.map((child) => (
               <EditJobRole
                 key={child.id}
                 id={child.id}
-                onAdd={addChild}
-                onDelete={deleteChild}
+                parentID={child.id}
+                onAddSibling={addSiblingRole}
+                onUpdateSelf={onChildUpdate}
+                onDeleteSelf={deleteSelfRole}
+                onChildAdd={onChildAdd}
+                onChildUpdate={onChildUpdate}
+                onChildDelete={onChildDelete}
               ></EditJobRole>
             ))
           }
+          <div>
+            <AddItemBtn onAdd={addSiblingRole} id={parentID}></AddItemBtn>
+          </div>
         </div>
       }
     </div>

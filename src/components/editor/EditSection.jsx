@@ -1,47 +1,22 @@
 import { Component, useState } from "react";
 import ShowHideBtn from "./ShowHideBtn";
 import randomUUID from "crypto";
+import AddItemBtn from "./AddItemBtn";
 
 function EditSection({
   name,
   parentID,
   Component,
-  // formData,
-  // onInputChange,
   onChildAdd,
   onChildUpdate,
   onChildDelete,
 }) {
   const [isVisible, setIsVisible] = useState(true);
 
-  const [children, setChildren] = useState([{ id: 1 }]);
+  // const [children, setChildren] = useState([{ id: 1 }]);
+  const [children, setChildren] = useState([]);
 
-  // const componentMap = {
-  //   EditGeneralInfo: "generalInfo",
-  //   EditEducationItem: "educationData",
-  //   EditJobCompany: "experienceData",
-  //   EditSkillItem: "skillsData",
-  // };
-
-  // const getComponentDataKey = (Component) => {
-  //   const componentName = Component.displayName || Component.name || "n/a";
-  //   return componentMap[componentName] || "not found";
-  // };
-
-  // const addChild = (id) => {
-  //   const index = children.findIndex((comp) => comp.id === id);
-  //   const newChild = { id: crypto.randomUUID() };
-  //   const updatedChildren = [
-  //     ...children.slice(0, index + 1),
-  //     newChild,
-  //     ...children.slice(index + 1),
-  //   ];
-  //   setChildren(updatedChildren);
-  //   //this needs to be unhardcoded
-  //   onChildAdd(newChild, getComponentDataKey(Component));
-  // };
-
-  const addChild = (id) => {
+  const handleAddSibling = (id) => {
     const index = children.findIndex((comp) => comp.id === id);
     const newChild = {
       id: crypto.randomUUID(),
@@ -53,33 +28,24 @@ function EditSection({
       newChild,
       ...children.slice(index + 1),
     ];
+    //sets local children
     setChildren(updatedChildren);
+    //passes state update back to App
     onChildAdd(newChild, newChild.id, parentID);
   };
 
-  const deleteChild = (id) => {
-    setChildren((prev) => prev.filter((comp) => comp.id !== id));
-    //this needs to be unhardcoded
-    onChildDelete(id);
-  };
-
-  const handleChildDataChange = (id, field, newText) => {
+  const handleUpdateSelf = (id, field, newText) => {
+    //passes state update back to App
     onChildUpdate(id, field, newText);
   };
 
-  // const deleteChild = (id) => {
-  //   setChildren((prev) => prev.filter((comp) => comp.id !== id));
-  //   //this needs to be unhardcoded
-  //   onChildDelete(id, getComponentDataKey(Component));
-  // };
-
-  // const handleChildDataChange = (key, id, field, newText) => {
-  //   onChildUpdate(key, id, field, newText);
-  // };
-
-  // const handleInputUpdate = (name, value) => {
-  //   onInputChange(name, value);
-  // };
+  const handleDeleteSelf = (id) => {
+    //sets local children
+    setChildren((prev) => prev.filter((comp) => comp.id !== id));
+    //this needs to be unhardcoded
+    //passes state update back to App
+    onChildDelete(id);
+  };
 
   return (
     <div className="editSection">
@@ -95,12 +61,19 @@ function EditSection({
           <Component
             key={child.id}
             id={child.id}
-            onAdd={addChild}
-            onDelete={deleteChild}
-            onDataChange={handleChildDataChange}
+            parentID={child.id}
+            onAddSibling={handleAddSibling}
+            onUpdateSelf={handleUpdateSelf}
+            onDeleteSelf={handleDeleteSelf}
+            onChildAdd={onChildAdd}
+            onChildUpdate={onChildUpdate}
+            onChildDelete={onChildDelete}
             // onInputChange={handleChildDataChange2} //dont think this one matters
           />
         ))}
+      </div>
+      <div>
+        <AddItemBtn onAdd={handleAddSibling} id={parentID}></AddItemBtn>
       </div>
       {/* {isVisible && <form className="editSectionBody">{children}</form>} */}
     </div>
@@ -108,3 +81,42 @@ function EditSection({
 }
 
 export default EditSection;
+
+// const componentMap = {
+//   EditGeneralInfo: "generalInfo",
+//   EditEducationItem: "educationData",
+//   EditJobCompany: "experienceData",
+//   EditSkillItem: "skillsData",
+// };
+
+// const getComponentDataKey = (Component) => {
+//   const componentName = Component.displayName || Component.name || "n/a";
+//   return componentMap[componentName] || "not found";
+// };
+
+// const addChild = (id) => {
+//   const index = children.findIndex((comp) => comp.id === id);
+//   const newChild = { id: crypto.randomUUID() };
+//   const updatedChildren = [
+//     ...children.slice(0, index + 1),
+//     newChild,
+//     ...children.slice(index + 1),
+//   ];
+//   setChildren(updatedChildren);
+//   //this needs to be unhardcoded
+//   onChildAdd(newChild, getComponentDataKey(Component));
+// };
+
+// const deleteChild = (id) => {
+//   setChildren((prev) => prev.filter((comp) => comp.id !== id));
+//   //this needs to be unhardcoded
+//   onChildDelete(id, getComponentDataKey(Component));
+// };
+
+// const handleChildDataChange = (key, id, field, newText) => {
+//   onChildUpdate(key, id, field, newText);
+// };
+
+// const handleInputUpdate = (name, value) => {
+//   onInputChange(name, value);
+// };
