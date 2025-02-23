@@ -21,23 +21,10 @@ function ViewerContainer({ /*children,*/ formData }) {
   return (
     <div className="resumeContainer">
       <div className="resumeContent">
-        <ResumeHeader
-          data={formData}
-          // firstName={formData.generalInfo.firstName}
-          // lastName={formData.generalInfo.lastName}
-          // addressLine1={formData.generalInfo.addressLine1}
-          // addressLine2={formData.generalInfo.addressLine2}
-          // city={formData.generalInfo.city}
-          // state={formData.generalInfo.state}
-          // zipcode={formData.generalInfo.zipcode}
-          // phoneNumber={formData.generalInfo.phoneNumber}
-          // email={formData.generalInfo.email}
-        ></ResumeHeader>
+        <ResumeHeader data={formData}></ResumeHeader>
 
-        {/* <ResumeEducationContainer
-          data={formData.educationData}
-        ></ResumeEducationContainer>
-        <ResumeExperienceContainer
+        <ResumeEducationContainer data={formData}></ResumeEducationContainer>
+        {/* <ResumeExperienceContainer
           data={formData.experienceData}
         ></ResumeExperienceContainer>
         <ResumeSkillsContainer
