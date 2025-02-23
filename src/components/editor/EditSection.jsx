@@ -22,6 +22,7 @@ function EditSection({
       id: crypto.randomUUID(),
       type: "insertType",
       children: [],
+      // sortIndex: index,
     };
     const updatedChildren = [
       ...children.slice(0, index + 1),
@@ -31,7 +32,7 @@ function EditSection({
     //sets local children
     setChildren(updatedChildren);
     //passes state update back to App
-    onChildAdd(newChild, newChild.id, parentID);
+    onChildAdd(newChild, newChild.id, parentID, index);
   };
 
   const handleUpdateSelf = (id, field, newText) => {

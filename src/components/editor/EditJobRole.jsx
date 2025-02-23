@@ -26,7 +26,7 @@ function EditJobRole({
       ...children.slice(index + 1),
     ];
     setChildren(updatedChildren);
-    onChildAdd(newChild, newChild.id, parentID);
+    onChildAdd(newChild, newChild.id, parentID, index);
   };
 
   const deleteSelfTask = (id) => {

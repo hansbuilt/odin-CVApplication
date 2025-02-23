@@ -3,9 +3,9 @@ import ResumeExperienceTask from "./ResumeExperienceTask";
 function ResumeExperienceJob({ parentID, data, name, dates }) {
   const taskIDs = data?.[parentID]["children"];
 
-  const taskData = Object.values(data).filter((item) =>
-    taskIDs.includes(item.id)
-  );
+  const taskData = Object.values(data)
+    .filter((item) => taskIDs.includes(item.id))
+    .sort((a, b) => taskIDs.indexOf(a.id) - taskIDs.indexOf(b.id));
 
   return (
     <div className="companyJob">

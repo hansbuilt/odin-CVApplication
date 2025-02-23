@@ -4,9 +4,9 @@ import ResumeEducationItem from "./ResumeEducationItem";
 function ResumeEducationContainer({ name, data }) {
   const educationIDs = data?.["educationData"]["children"];
 
-  const educationData = Object.values(data).filter((item) =>
-    educationIDs.includes(item.id)
-  );
+  const educationData = Object.values(data)
+    .filter((item) => educationIDs.includes(item.id))
+    .sort((a, b) => educationIDs.indexOf(a.id) - educationIDs.indexOf(b.id));
 
   if (educationData.length === 0) return null;
 

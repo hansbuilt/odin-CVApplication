@@ -23,16 +23,49 @@ function App() {
     skillsData: { id: "skillsData", type: "container", children: [] },
   });
 
-  const handleItemAdd = (obj, key, parentID) => {
-    setFormData((prev) => ({
-      ...prev,
+  const handleItemAdd = (obj, key, parentID, insertIndex) => {
+    // setFormData((prev) => ({
+    //   ...prev,
 
-      [parentID]: {
+    //   [parentID]: {
+    //     ...prev[parentID],
+    //     // children: [...prev[parentID].children, key],
+
+    //     children: [
+    //       ...prev[parentID].children.slice(0, obj.sortIndex + 1),
+    //       key,
+    //       ...prev[parentID].children.slice(obj.sortIndex + 1),
+    //     ],
+    //   },
+    //   [key]: obj,
+    // }));
+
+    setFormData((prev) => {
+      //appends new object to end of entire state item, children not touched yet
+      const newData = {
+        ...prev,
+        [key]: obj,
+      };
+
+      // Get the parent's children, sorted by index
+      let updatedParentChildren = [
+        ...prev[parentID].children.slice(0, insertIndex + 1),
+        key,
+        ...prev[parentID].children.slice(insertIndex + 1),
+      ];
+
+      // console.log(updatedParentChildren);
+      // .sort(        (a, b) => a.index - b.index
+      // Shift indices of existing children at or after insert position
+
+      // Update the parent's children list
+      newData[parentID] = {
         ...prev[parentID],
-        children: [...prev[parentID].children, key],
-      },
-      [key]: obj,
-    }));
+        children: updatedParentChildren,
+      };
+
+      return newData;
+    });
 
     //need to figure out ordering
   };
@@ -40,7 +73,6 @@ function App() {
   const handleItemDelete = (key) => {
     setFormData((prev) => {
       const newData = { ...prev };
-      // delete newData[key];
 
       const collectDescendents = (parentID) => {
         let idsToDelete = [parentID];
@@ -66,15 +98,6 @@ function App() {
         };
       });
 
-      // Object.keys(newData).forEach((id) => {
-      //   newData[id] = {
-      //     ...newData[id],
-      //     children: newData[id].children.filter((childID) => childID !== key),
-      //   };
-      // });
-
-      //need to add recursive deletion of children
-
       return newData;
     });
   };
@@ -83,7 +106,6 @@ function App() {
     setFormData((prev) => ({
       ...prev,
       [key]: { ...prev[key], [attribute]: attributeValue },
-      // [key]: { ...prev[key], [attribute]: attributeValue },
     }));
   };
 
@@ -96,7 +118,6 @@ function App() {
           name="General Info"
           parentID="generalData"
           Component={EditGeneralInfo}
-          // formData={formData}
           onChildAdd={handleItemAdd}
           onChildUpdate={handleItemUpdate}
         ></EditSection>
@@ -105,8 +126,6 @@ function App() {
           name="Education"
           parentID="educationData"
           Component={EditEducationItem}
-          // formData={formData}
-          // onInputChange={handleInputChange}
           onChildAdd={handleItemAdd}
           onChildUpdate={handleItemUpdate}
           onChildDelete={handleItemDelete}
@@ -116,8 +135,6 @@ function App() {
           name="Experience"
           parentID="experienceData"
           Component={EditJobCompany}
-          // formData={formData2}
-          // onInputChange={handleInputChange}
           onChildAdd={handleItemAdd}
           onChildUpdate={handleItemUpdate}
           onChildDelete={handleItemDelete}
@@ -127,8 +144,6 @@ function App() {
           name="Skills & Interests"
           parentID="skillsData"
           Component={EditSkillItem}
-          // formData={formData}
-          // onInputChange={handleInputChange}
           onChildAdd={handleItemAdd}
           onChildUpdate={handleItemUpdate}
           onChildDelete={handleItemDelete}

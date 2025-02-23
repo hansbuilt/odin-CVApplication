@@ -4,9 +4,9 @@ import ResumeExperienceItem from "./ResumeExperienceItem";
 function ResumeExperienceContainer({ name, data }) {
   const experienceIDs = data?.["experienceData"]["children"];
 
-  const experienceData = Object.values(data).filter((item) =>
-    experienceIDs.includes(item.id)
-  );
+  const experienceData = Object.values(data)
+    .filter((item) => experienceIDs.includes(item.id))
+    .sort((a, b) => experienceIDs.indexOf(a.id) - experienceIDs.indexOf(b.id));
 
   if (experienceData.length === 0) return null;
 
