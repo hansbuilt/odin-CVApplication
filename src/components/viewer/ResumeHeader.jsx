@@ -1,6 +1,6 @@
 function ResumeHeader({ data }) {
   const headerKey = data?.["generalData"]["children"][0];
-  const headerData = data[headerKey];
+  const headerData = data[headerKey] ?? [];
 
   const headerLine1 =
     (headerData?.["firstName"] ? headerData["firstName"] + " " : "") +
