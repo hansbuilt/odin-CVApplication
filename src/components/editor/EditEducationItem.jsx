@@ -3,7 +3,7 @@ import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 
-function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
+function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -11,8 +11,8 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
       <div className="editItemHeader">
         <h3>Education 1</h3>
         <div className="">
-          <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
-          <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
+          <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+          <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
           <ShowHideBtn
             isVisible={isVisible}
             toggle={() => setIsVisible(!isVisible)}
@@ -26,7 +26,7 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationInstitution"
           placeholder="ex. UW-Anywhere"
           onChange={(e) =>
-            onDataChange(
+            onUpdateSelf(
               // "educationData",
               id,
               e.target.name,
@@ -41,7 +41,7 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationLocation"
           placeholder="ex. Anytown, USA"
           onChange={(e) =>
-            onDataChange(
+            onUpdateSelf(
               // "educationData",
               id,
               e.target.name,
@@ -56,7 +56,7 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationDegree"
           placeholder="ex. Bachelor of Business Administraton"
           onChange={(e) =>
-            onDataChange(
+            onUpdateSelf(
               // "educationData",
               id,
               e.target.name,
@@ -71,7 +71,7 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationDates"
           placeholder="mm/yy-mm/yy, mm/yy, or yyyy"
           onChange={(e) =>
-            onDataChange(
+            onUpdateSelf(
               // "educationData",
               id,
               e.target.name,
@@ -86,7 +86,7 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationMajors"
           placeholder="ex. Double Major, Finance and Marketing"
           onChange={(e) =>
-            onDataChange(
+            onUpdateSelf(
               // "educationData",
               id,
               e.target.name,
@@ -101,7 +101,7 @@ function EditEducationItem({ id, onAdd, onDelete, onDataChange }) {
           name="educationGPA"
           placeholder="ex. 4.0"
           onChange={(e) =>
-            onDataChange(
+            onUpdateSelf(
               // "educationData",
               id,
               e.target.name,

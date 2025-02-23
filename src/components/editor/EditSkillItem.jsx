@@ -1,7 +1,7 @@
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 
-function EditSkillItem({ id, onAdd, onDelete, onDataChange }) {
+function EditSkillItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
   return (
     <div className="editBulletItem">
       <input
@@ -9,7 +9,7 @@ function EditSkillItem({ id, onAdd, onDelete, onDataChange }) {
         name="jobTask"
         placeholder="Skill, interest"
         onChange={(e) =>
-          onDataChange(
+          onUpdateSelf(
             // "skillsData",
             id,
             "text",
@@ -18,8 +18,8 @@ function EditSkillItem({ id, onAdd, onDelete, onDataChange }) {
         }
       ></input>
       <div>
-        <AddItemBtn onAdd={onAdd} id={id}></AddItemBtn>
-        <DeleteItemBtn onDelete={onDelete} id={id}></DeleteItemBtn>
+        <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+        <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
       </div>
     </div>
   );
