@@ -1,6 +1,12 @@
 import ResumeExperienceTask from "./ResumeExperienceTask";
 
-function ResumeExperienceJob({ name, dates, children }) {
+function ResumeExperienceJob({ parentID, data, name, dates }) {
+  const taskIDs = data?.[parentID]["children"];
+
+  const taskData = Object.values(data).filter((item) =>
+    taskIDs.includes(item.id)
+  );
+
   return (
     <div className="companyJob">
       <div className="companyJobHeader">
@@ -9,11 +15,19 @@ function ResumeExperienceJob({ name, dates, children }) {
         <span>{dates}</span>
       </div>
 
-      <div>
+      {Object.keys(taskData).length > 0
+        ? taskData.map((item) => (
+            <ResumeExperienceTask
+              key={item?.["id"] ?? ""}
+              text={item?.["jobTask"] ?? ""}
+            ></ResumeExperienceTask>
+          ))
+        : ""}
+
+      {/* <div>
         <ResumeExperienceTask text="Swept and mopped floors"></ResumeExperienceTask>
         <ResumeExperienceTask text="Swept and mopped floors"></ResumeExperienceTask>
-        {children}
-      </div>
+      </div> */}
     </div>
   );
 }

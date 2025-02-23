@@ -1,6 +1,12 @@
 import ResumeExperienceJob from "./ResumeExperienceJob";
 
-function ResumeExperienceItem({ name, location }) {
+function ResumeExperienceItem({ parentID, data, name, location }) {
+  const roleIDs = data?.[parentID]["children"];
+
+  const roleData = Object.values(data).filter((item) =>
+    roleIDs.includes(item.id)
+  );
+
   return (
     <div className="companyItem">
       <div className="companyLine1">
@@ -8,10 +14,19 @@ function ResumeExperienceItem({ name, location }) {
         <span> </span>
         <span className="companyLocation">{location}</span>
       </div>
-      <ResumeExperienceJob
-        name="Engineer 1"
-        dates="mm/dd"
-      ></ResumeExperienceJob>
+
+      {Object.keys(roleData).length > 0
+        ? roleData.map((item) => (
+            <ResumeExperienceJob
+              key={item?.["id"] ?? ""}
+              parentID={item?.["id"] ?? ""}
+              data={data}
+              name={item?.["jobTitle"] ?? ""}
+              dates={item?.["jobDates"] ?? ""}
+            ></ResumeExperienceJob>
+          ))
+        : ""}
+
       <span className="spacer"></span>
     </div>
   );

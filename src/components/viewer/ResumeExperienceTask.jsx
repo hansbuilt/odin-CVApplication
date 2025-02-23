@@ -1,8 +1,9 @@
 function ResumeExperienceTask({ text }) {
+  const formatText = text ? "• " + text : "";
+
   return (
     <div className="companyJob">
-      <span>• </span>
-      <span>{text}</span>
+      <span>{formatText}</span>
     </div>
   );
 }

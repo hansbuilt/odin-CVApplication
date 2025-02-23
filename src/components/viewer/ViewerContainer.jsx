@@ -24,9 +24,7 @@ function ViewerContainer({ /*children,*/ formData }) {
         <ResumeHeader data={formData}></ResumeHeader>
 
         <ResumeEducationContainer data={formData}></ResumeEducationContainer>
-        {/* <ResumeExperienceContainer
-          data={formData.experienceData}
-        ></ResumeExperienceContainer>*/}
+        <ResumeExperienceContainer data={formData}></ResumeExperienceContainer>
         <ResumeSkillsContainer data={formData}></ResumeSkillsContainer>
       </div>
     </div>
