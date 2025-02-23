@@ -22,18 +22,19 @@ function ViewerContainer({ /*children,*/ formData }) {
     <div className="resumeContainer">
       <div className="resumeContent">
         <ResumeHeader
-          firstName={formData.generalInfo.firstName}
-          lastName={formData.generalInfo.lastName}
-          addressLine1={formData.generalInfo.addressLine1}
-          addressLine2={formData.generalInfo.addressLine2}
-          city={formData.generalInfo.city}
-          state={formData.generalInfo.state}
-          zipcode={formData.generalInfo.zipcode}
-          phoneNumber={formData.generalInfo.phoneNumber}
-          email={formData.generalInfo.email}
+          data={formData}
+          // firstName={formData.generalInfo.firstName}
+          // lastName={formData.generalInfo.lastName}
+          // addressLine1={formData.generalInfo.addressLine1}
+          // addressLine2={formData.generalInfo.addressLine2}
+          // city={formData.generalInfo.city}
+          // state={formData.generalInfo.state}
+          // zipcode={formData.generalInfo.zipcode}
+          // phoneNumber={formData.generalInfo.phoneNumber}
+          // email={formData.generalInfo.email}
         ></ResumeHeader>
 
-        <ResumeEducationContainer
+        {/* <ResumeEducationContainer
           data={formData.educationData}
         ></ResumeEducationContainer>
         <ResumeExperienceContainer
@@ -41,7 +42,7 @@ function ViewerContainer({ /*children,*/ formData }) {
         ></ResumeExperienceContainer>
         <ResumeSkillsContainer
           data={formData.skillsData}
-        ></ResumeSkillsContainer>
+        ></ResumeSkillsContainer> */}
       </div>
     </div>
   );

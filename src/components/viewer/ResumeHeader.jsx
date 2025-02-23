@@ -1,29 +1,19 @@
-function ResumeHeader({
-  firstName,
-  lastName,
-  addressLine1,
-  addressLine2,
-  city,
-  state,
-  zipcode,
-  phoneNumber,
-  email,
-}) {
-  const headerLine1 = firstName + " " + lastName;
+function ResumeHeader({ data }) {
+  const headerKey = data?.["generalData"]["children"][0];
+  const headerData = data[headerKey];
+  console.log(headerData);
+
+  const headerLine1 =
+    (headerData?.["firstName"] ? headerData["firstName"] + " " : "") +
+    (headerData?.["lastName"] ?? "");
   const headerLine2 =
-    addressLine1 +
-    ", " +
-    addressLine2 +
-    ", " +
-    city +
-    ", " +
-    state +
-    " " +
-    zipcode +
-    " • " +
-    phoneNumber +
-    " • " +
-    email;
+    (headerData?.["addressLine1"] ? headerData["addressLine1"] : "") +
+    (headerData?.["addressLine2"] ? ", " + headerData["addressLine2"] : "") +
+    (headerData?.["city"] ? ", " + headerData["city"] : "") +
+    (headerData?.["state"] ? ", " + headerData["state"] : "") +
+    (headerData?.["zipcode"] ? ", " + headerData["zipcode"] : "") +
+    (headerData?.["phoneNumber"] ? " • " + headerData["phoneNumber"] : "") +
+    (headerData?.["email"] ? " • " + headerData["email"] : "");
 
   return (
     <div>
