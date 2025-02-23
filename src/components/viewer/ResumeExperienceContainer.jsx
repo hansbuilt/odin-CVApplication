@@ -8,6 +8,8 @@ function ResumeExperienceContainer({ name, data }) {
     experienceIDs.includes(item.id)
   );
 
+  if (experienceData.length === 0) return null;
+
   return (
     <ResumeSectionContainer name="Experience">
       {Object.keys(experienceData).length > 0

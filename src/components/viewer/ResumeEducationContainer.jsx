@@ -8,6 +8,8 @@ function ResumeEducationContainer({ name, data }) {
     educationIDs.includes(item.id)
   );
 
+  if (educationData.length === 0) return null;
+
   return (
     <ResumeSectionContainer name="Education">
       {Object.keys(educationData).length > 0
@@ -22,7 +24,7 @@ function ResumeEducationContainer({ name, data }) {
               gpa={item?.["educationGPA"] ?? ""}
             ></ResumeEducationItem>
           ))
-        : "hey"}
+        : ""}
 
       <span className="spacer"></span>
     </ResumeSectionContainer>

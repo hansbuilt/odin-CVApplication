@@ -8,6 +8,8 @@ function ResumeSkillsContainer({ name, data /*children*/ }) {
     skillsIDs.includes(item.id)
   );
 
+  if (skillsIDs.length === 0) return null;
+
   return (
     <ResumeSectionContainer name="Skills & Interests">
       {Object.keys(skillsData).length > 0
@@ -17,7 +19,7 @@ function ResumeSkillsContainer({ name, data /*children*/ }) {
               skillsText={item?.["text"] ?? ""}
             ></ResumeSkillItem>
           ))
-        : "heyy"}
+        : ""}
     </ResumeSectionContainer>
   );
 }
