@@ -17,15 +17,6 @@ function App() {
       id: "generalData",
       type: "contianer",
       children: [],
-      // firstName: "",
-      // lastName: "",
-      // addressLine1: "",
-      // addressLine2: "",
-      // city: "",
-      // state: "",
-      // zipcode: "",
-      // phoneNumber: "",
-      // email: "",
     },
     educationData: { id: "educationData", type: "container", children: [] },
     experienceData: { id: "experienceData", type: "container", children: [] },
@@ -49,14 +40,38 @@ function App() {
   const handleItemDelete = (key) => {
     setFormData((prev) => {
       const newData = { ...prev };
-      delete newData[key];
+      // delete newData[key];
+
+      const collectDescendents = (parentID) => {
+        let idsToDelete = [parentID];
+
+        prev[parentID]?.children.forEach((childID) => {
+          idsToDelete = idsToDelete.concat(collectDescendents(childID));
+        });
+        return idsToDelete;
+      };
+
+      const idsToDelete = collectDescendents(key);
+
+      idsToDelete.forEach((id) => {
+        delete newData[id];
+      });
 
       Object.keys(newData).forEach((id) => {
         newData[id] = {
           ...newData[id],
-          children: newData[id].children.filter((childID) => childID !== key),
+          children: newData[id].children.filter(
+            (childID) => !idsToDelete.includes(childID)
+          ),
         };
       });
+
+      // Object.keys(newData).forEach((id) => {
+      //   newData[id] = {
+      //     ...newData[id],
+      //     children: newData[id].children.filter((childID) => childID !== key),
+      //   };
+      // });
 
       //need to add recursive deletion of children
 
