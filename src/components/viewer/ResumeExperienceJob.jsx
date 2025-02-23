@@ -23,11 +23,6 @@ function ResumeExperienceJob({ parentID, data, name, dates }) {
             ></ResumeExperienceTask>
           ))
         : ""}
-
-      {/* <div>
-        <ResumeExperienceTask text="Swept and mopped floors"></ResumeExperienceTask>
-        <ResumeExperienceTask text="Swept and mopped floors"></ResumeExperienceTask>
-      </div> */}
     </div>
   );
 }

@@ -8,14 +8,7 @@ function EditSkillItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
         type="text"
         name="jobTask"
         placeholder="Skill, interest"
-        onChange={(e) =>
-          onUpdateSelf(
-            // "skillsData",
-            id,
-            "text",
-            e.target.value
-          )
-        }
+        onChange={(e) => onUpdateSelf(id, "text", e.target.value)}
       ></input>
       <div>
         <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>

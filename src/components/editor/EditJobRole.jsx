@@ -14,7 +14,6 @@ function EditJobRole({
   onChildUpdate,
   onChildDelete,
 }) {
-  //const [children, setChildren] = useState([{ id: 1 }]);
   const [children, setChildren] = useState([]);
 
   const addSiblingTask = (id) => {

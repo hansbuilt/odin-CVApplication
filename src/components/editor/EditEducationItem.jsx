@@ -25,14 +25,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
           type="text"
           name="educationInstitution"
           placeholder="ex. UW-Anywhere"
-          onChange={(e) =>
-            onUpdateSelf(
-              // "educationData",
-              id,
-              e.target.name,
-              e.target.value
-            )
-          }
+          onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
 
         <label>Institution Location</label>
@@ -40,14 +33,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
           type="text"
           name="educationLocation"
           placeholder="ex. Anytown, USA"
-          onChange={(e) =>
-            onUpdateSelf(
-              // "educationData",
-              id,
-              e.target.name,
-              e.target.value
-            )
-          }
+          onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
 
         <label>Degree</label>
@@ -55,14 +41,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
           type="text"
           name="educationDegree"
           placeholder="ex. Bachelor of Business Administraton"
-          onChange={(e) =>
-            onUpdateSelf(
-              // "educationData",
-              id,
-              e.target.name,
-              e.target.value
-            )
-          }
+          onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
 
         <label>Graduation MM/YY</label>
@@ -70,14 +49,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
           type="text"
           name="educationDates"
           placeholder="mm/yy-mm/yy, mm/yy, or yyyy"
-          onChange={(e) =>
-            onUpdateSelf(
-              // "educationData",
-              id,
-              e.target.name,
-              e.target.value
-            )
-          }
+          onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
 
         <label>Majors</label>
@@ -85,14 +57,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
           type="text"
           name="educationMajors"
           placeholder="ex. Double Major, Finance and Marketing"
-          onChange={(e) =>
-            onUpdateSelf(
-              // "educationData",
-              id,
-              e.target.name,
-              e.target.value
-            )
-          }
+          onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
 
         <label>GPA</label>
@@ -100,14 +65,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
           type="text"
           name="educationGPA"
           placeholder="ex. 4.0"
-          onChange={(e) =>
-            onUpdateSelf(
-              // "educationData",
-              id,
-              e.target.name,
-              e.target.value
-            )
-          }
+          onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
       </div>
     </div>

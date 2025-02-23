@@ -3,7 +3,6 @@ function ResumeSkillItem({ skillsText }) {
 
   return (
     <div className="skillItem">
-      {/* <span>• </span> */}
       <span>{text}</span>
     </div>
   );

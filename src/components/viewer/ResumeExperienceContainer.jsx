@@ -20,9 +20,6 @@ function ResumeExperienceContainer({ name, data }) {
               data={data}
               name={item?.["jobCompany"] ?? ""}
               location={item?.["jobLocation"] ?? ""}
-              // key={item.id}
-              // name={item.jobCompany}
-              // location={item.jobLocation}
             ></ResumeExperienceItem>
           ))
         : ""}

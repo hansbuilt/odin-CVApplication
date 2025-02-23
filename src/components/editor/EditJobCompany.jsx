@@ -3,7 +3,6 @@ import ShowHideBtn from "./ShowHideBtn";
 import AddItemBtn from "./AddItemBtn";
 import DeleteItemBtn from "./DeleteItemBtn";
 import EditJobRole from "./EditJobRole";
-// import randomUUID from "crypto";
 
 function EditJobCompany({
   id,
@@ -17,7 +16,6 @@ function EditJobCompany({
 }) {
   const [isVisible, setIsVisible] = useState(true);
 
-  // const [children, setChildren] = useState([{ id: 1 }]);
   const [children, setChildren] = useState([]);
 
   const addSiblingRole = (id) => {
@@ -70,22 +68,19 @@ function EditJobCompany({
             ></input>
           </div>
 
-          {
-            /*isVisible &&*/
-            children.map((child) => (
-              <EditJobRole
-                key={child.id}
-                id={child.id}
-                parentID={child.id}
-                onAddSibling={addSiblingRole}
-                onUpdateSelf={onChildUpdate}
-                onDeleteSelf={deleteSelfRole}
-                onChildAdd={onChildAdd}
-                onChildUpdate={onChildUpdate}
-                onChildDelete={onChildDelete}
-              ></EditJobRole>
-            ))
-          }
+          {children.map((child) => (
+            <EditJobRole
+              key={child.id}
+              id={child.id}
+              parentID={child.id}
+              onAddSibling={addSiblingRole}
+              onUpdateSelf={onChildUpdate}
+              onDeleteSelf={deleteSelfRole}
+              onChildAdd={onChildAdd}
+              onChildUpdate={onChildUpdate}
+              onChildDelete={onChildDelete}
+            ></EditJobRole>
+          ))}
           <div>
             <AddItemBtn onAdd={addSiblingRole} id={parentID}></AddItemBtn>
           </div>

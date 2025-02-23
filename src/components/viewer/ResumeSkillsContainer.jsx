@@ -1,7 +1,7 @@
 import ResumeSectionContainer from "./ResumeSectionContainer";
 import ResumeSkillItem from "./ResumeSkillItem";
 
-function ResumeSkillsContainer({ name, data /*children*/ }) {
+function ResumeSkillsContainer({ name, data }) {
   const skillsIDs = data?.["skillsData"]["children"];
 
   const skillsData = Object.values(data)
