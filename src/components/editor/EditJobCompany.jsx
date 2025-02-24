@@ -38,7 +38,7 @@ function EditJobCompany({
   return (
     <div className="editJobCompany">
       <div className="editItemHeader">
-        <h3>Company 1</h3>
+        <h3>Company</h3>
         <div>
           <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>

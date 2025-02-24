@@ -36,7 +36,7 @@ function EditJobRole({
   return (
     <div className="editJobRole">
       <div className="editItemHeader">
-        <h4>Job 1</h4>
+        <h4>Job</h4>
         <div>
           <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
