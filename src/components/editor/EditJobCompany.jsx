@@ -40,7 +40,7 @@ function EditJobCompany({
       <div className="editItemHeader">
         <h3>Company</h3>
         <div>
-          <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+          <AddItemBtn onAdd={onAddSibling} id={id} text={"+"}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
           <ShowHideBtn
             isVisible={isVisible}
@@ -81,11 +81,16 @@ function EditJobCompany({
               onChildDelete={onChildDelete}
             ></EditJobRole>
           ))}
-          <div>
-            {children.length > 0 ? null : (
-              <AddItemBtn onAdd={addSiblingRole} id={parentID}></AddItemBtn>
-            )}
-          </div>
+
+          {children.length > 0 ? null : (
+            <div className="editSectionAddFirst">
+              <AddItemBtn
+                onAdd={addSiblingRole}
+                id={parentID}
+                text={"+ Add Job"}
+              ></AddItemBtn>
+            </div>
+          )}
         </div>
       }
     </div>

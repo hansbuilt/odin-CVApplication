@@ -38,7 +38,7 @@ function EditJobRole({
       <div className="editItemHeader">
         <h4>Job</h4>
         <div>
-          <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+          <AddItemBtn onAdd={onAddSibling} id={id} text={"+"}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
         </div>
       </div>
@@ -68,11 +68,15 @@ function EditJobRole({
           onDeleteSelf={deleteSelfTask}
         ></EditJobTask>
       ))}
-      <div>
-        {children.length > 0 ? null : (
-          <AddItemBtn onAdd={addSiblingTask} id={parentID}></AddItemBtn>
-        )}
-      </div>
+      {children.length > 0 ? null : (
+        <div className="editSectionAddFirst">
+          <AddItemBtn
+            onAdd={addSiblingTask}
+            id={parentID}
+            text={"+ Add Task"}
+          ></AddItemBtn>
+        </div>
+      )}
     </div>
   );
 }

@@ -74,9 +74,18 @@
   width: 120vw;
 }
 
+.editSectionAddFirst {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-top: 5px;
+}
+
 .buttonAddDel,
 .buttonShowHide {
-  width: 25px;
+  min-width: 25px;
+  padding: 0 5px 0 5px;
+  width: auto;
   height: 25px;
 }
 

@@ -10,7 +10,7 @@ function EditJobTask({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
         onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
       ></input>
       <div>
-        <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+        <AddItemBtn onAdd={onAddSibling} id={id} text={"+"}></AddItemBtn>
         <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
       </div>
     </div>

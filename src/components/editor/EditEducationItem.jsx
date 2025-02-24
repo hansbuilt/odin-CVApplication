@@ -11,7 +11,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
       <div className="editItemHeader">
         <h3>Education</h3>
         <div className="">
-          <AddItemBtn onAdd={onAddSibling} id={id}></AddItemBtn>
+          <AddItemBtn onAdd={onAddSibling} id={id} text={"+"}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
           <ShowHideBtn
             isVisible={isVisible}
