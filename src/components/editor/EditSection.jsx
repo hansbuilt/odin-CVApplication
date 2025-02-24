@@ -70,7 +70,9 @@ function EditSection({
         ))}
       </div>
       <div>
-        <AddItemBtn onAdd={handleAddSibling} id={parentID}></AddItemBtn>
+        {children.length > 0 ? null : (
+          <AddItemBtn onAdd={handleAddSibling} id={parentID}></AddItemBtn>
+        )}
       </div>
     </div>
   );

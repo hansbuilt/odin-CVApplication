@@ -82,7 +82,9 @@ function EditJobCompany({
             ></EditJobRole>
           ))}
           <div>
-            <AddItemBtn onAdd={addSiblingRole} id={parentID}></AddItemBtn>
+            {children.length > 0 ? null : (
+              <AddItemBtn onAdd={addSiblingRole} id={parentID}></AddItemBtn>
+            )}
           </div>
         </div>
       }

@@ -69,7 +69,9 @@ function EditJobRole({
         ></EditJobTask>
       ))}
       <div>
-        <AddItemBtn onAdd={addSiblingTask} id={parentID}></AddItemBtn>
+        {children.length > 0 ? null : (
+          <AddItemBtn onAdd={addSiblingTask} id={parentID}></AddItemBtn>
+        )}
       </div>
     </div>
   );
