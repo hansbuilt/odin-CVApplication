@@ -7,6 +7,7 @@ function EditJobTask({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
       <input
         type="text"
         name="jobTask"
+        placeholder="Enter one of your tasks / duties / responsibilites"
         onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
       ></input>
       <div>

@@ -47,12 +47,14 @@ function EditJobRole({
         <input
           type="text"
           name="jobTitle"
+          placeholder="ex. Software Developer"
           onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
         <label>Job Dates</label>
         <input
           type="text"
           name="jobDates"
+          placeholder="ex. 01/01-12/25"
           onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
       </div>
