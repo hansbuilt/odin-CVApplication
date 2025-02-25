@@ -24,22 +24,6 @@ function App() {
   });
 
   const handleItemAdd = (obj, key, parentID, insertIndex) => {
-    // setFormData((prev) => ({
-    //   ...prev,
-
-    //   [parentID]: {
-    //     ...prev[parentID],
-    //     // children: [...prev[parentID].children, key],
-
-    //     children: [
-    //       ...prev[parentID].children.slice(0, obj.sortIndex + 1),
-    //       key,
-    //       ...prev[parentID].children.slice(obj.sortIndex + 1),
-    //     ],
-    //   },
-    //   [key]: obj,
-    // }));
-
     setFormData((prev) => {
       //appends new object to end of entire state item, children not touched yet
       const newData = {
@@ -112,7 +96,7 @@ function App() {
   return (
     <>
       <div className="editContainer">
-        <h1>Resume Builder App</h1>
+        <h1 id="appHeader">Resume Builder App</h1>
 
         <EditSection
           name="General Info"
