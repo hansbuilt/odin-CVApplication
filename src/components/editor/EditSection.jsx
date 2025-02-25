@@ -68,16 +68,17 @@ function EditSection({
             onChildDelete={onChildDelete}
           />
         ))}
+
+        {children.length > 0 ? null : (
+          <div className="editSectionAddFirst">
+            <AddItemBtn
+              onAdd={handleAddSibling}
+              id={parentID}
+              text={"+ Add New"}
+            ></AddItemBtn>
+          </div>
+        )}
       </div>
-      {children.length > 0 ? null : (
-        <div className="editSectionAddFirst">
-          <AddItemBtn
-            onAdd={handleAddSibling}
-            id={parentID}
-            text={"+ Add New"}
-          ></AddItemBtn>
-        </div>
-      )}
     </div>
   );
 }
