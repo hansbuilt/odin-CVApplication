@@ -57,8 +57,8 @@ function EditJobRole({
           placeholder="ex. 01/01-12/25"
           onChange={(e) => onUpdateSelf(id, e.target.name, e.target.value)}
         ></input>
+        <label>Tasks:</label>
       </div>
-      <label>Tasks:</label>
 
       {children.map((child) => (
         <EditJobTask
