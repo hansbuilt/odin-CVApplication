@@ -23,24 +23,17 @@ function App() {
 
   const handleItemAdd = (obj, key, parentID, insertIndex) => {
     setFormData((prev) => {
-      //appends new object to end of entire state item, children not touched yet
       const newData = {
         ...prev,
         [key]: obj,
       };
 
-      // Get the parent's children, sorted by index
       let updatedParentChildren = [
         ...prev[parentID].children.slice(0, insertIndex + 1),
         key,
         ...prev[parentID].children.slice(insertIndex + 1),
       ];
 
-      // console.log(updatedParentChildren);
-      // .sort(        (a, b) => a.index - b.index
-      // Shift indices of existing children at or after insert position
-
-      // Update the parent's children list
       newData[parentID] = {
         ...prev[parentID],
         children: updatedParentChildren,
@@ -48,8 +41,6 @@ function App() {
 
       return newData;
     });
-
-    //need to figure out ordering
   };
 
   const handleItemDelete = (key) => {
@@ -142,70 +133,3 @@ function App() {
 }
 
 export default App;
-
-// const [formData, setFormData] = useState({
-//   generalInfo: {
-//     firstName: "",
-//     lastName: "",
-//     addressLine1: "",
-//     addressLine2: "",
-//     city: "",
-//     state: "",
-//     zipcode: "",
-//     phoneNumber: "",
-//     email: "",
-//   },
-//   educationData: [{ id: 1 }],
-//   experienceData: [{ id: 1 }],
-//   skillsData: [{ id: 1 }],
-// });
-
-// const updateNestedState = (obj, path, value) => {
-//   //this function unpacks a dot notated variable location into an array, to updated a nested state object value
-//   const keys = path.split(".");
-//   let newObj = { ...obj };
-
-//   let temp = newObj;
-//   for (let i = 0; i < keys.length - 1; i++) {
-//     temp[keys[i]] = { ...temp[keys[i]] };
-//     temp = temp[keys[i]];
-//   }
-
-//   temp[keys[keys.length - 1]] = value;
-
-//   return newObj;
-// };
-
-// const handleInputChange = (e) => {
-//   setFormData({ ...formData, [e.target.name]: e.target.value });
-// };
-
-// const handleInputChange = (name, value) => {
-//   setFormData((prev) => updateNestedState(prev, name, value));
-// };
-
-// const handleChildAdd = (obj, key) => {
-//   setFormData((prev) => ({
-//     ...prev,
-//     [key]: [...prev[key], obj],
-//   }));
-// };
-
-// const handleChildDelete = (id, key) => {
-//   setFormData((prev) => ({
-//     ...prev,
-//     [key]: prev[key].filter((child) => child.id !== id),
-//   }));
-// };
-
-// const handleChildUpdate = (key, id, field, newValue) => {
-//   setFormData((prev) => ({
-//     ...prev,
-//     [key]: prev[key].map((child) =>
-//       child.id === id ? { ...child, [field]: newValue } : child
-//     ),
-//   }));
-// };
-
-// const handleChildUpdate = (id, text) => {
-// }
