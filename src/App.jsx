@@ -1,15 +1,13 @@
 import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import "./App.css";
 import "./Viewer.css";
 import EditSection from "./components/editor/EditSection";
 import EditGeneralInfo from "./components/editor/EditGeneralInfo";
 import EditEducationItem from "./components/editor/EditEducationItem";
 import EditJobCompany from "./components/editor/EditJobCompany";
-// import EditSkillsList from "./components/editor/EditSkillList";
 import EditSkillItem from "./components/editor/EditSkillItem";
 import ViewerContainer from "./components/viewer/ViewerContainer";
+import PrintResumeBtn from "./components/editor/PrintResumeBtn";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -96,7 +94,10 @@ function App() {
   return (
     <>
       <div className="editContainer">
-        <h1 id="appHeader">Resume Builder App</h1>
+        <div className="headerContainer">
+          <h1 id="appHeader">Resume Builder App</h1>
+          <PrintResumeBtn></PrintResumeBtn>
+        </div>
 
         <EditSection
           name="General Info"

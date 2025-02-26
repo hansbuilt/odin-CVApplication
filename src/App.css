@@ -8,13 +8,14 @@
   }
 
   .resumeContainer {
-    /* remove border, center on page when printing */
-    margin: 0;
+    margin: 0 auto;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
+    max-width: 768px;
     box-shadow: none !important;
+    border: none !important;
   }
 }
 
@@ -27,7 +28,6 @@
   display: flex;
   justify-content: space-between;
   background-color: rgb(229, 229, 229);
-  /* max-width: 1280px; */
 }
 
 #appHeader {
@@ -35,8 +35,14 @@
   padding: 5px;
 }
 
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 0px;
+}
+
 .editContainer {
-  /* background-color: lightblue; */
   width: 80vw;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -104,13 +110,10 @@
 }
 
 .editJobTask {
-  /* margin: 5px 0px 5px 5px; */
-  /* background-color: rgb(180, 180, 180); */
   padding: 0px 5px;
 }
 
 .renderContainer {
-  /* background-color: rgb(213, 213, 213); */
   width: 120vw;
   font-family: "Times New Roman", Times, serif;
 }
@@ -147,7 +150,6 @@ input {
   box-shadow: none;
   padding: 0px 5px;
   min-height: 20px;
-  /* border-radius: 5px; */
 }
 
 input:focus {
@@ -159,53 +161,3 @@ input:focus {
   /* keep this at bottom for precedence */
   display: none;
 }
-
-/* .editSection > * > label {
-  font-size: 10pt;
-}
-
-.editSection > form {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-}
-
-.editSection > form > div {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-} */
-
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
