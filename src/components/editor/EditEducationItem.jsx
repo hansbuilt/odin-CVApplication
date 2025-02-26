@@ -10,7 +10,7 @@ function EditEducationItem({ id, onAddSibling, onUpdateSelf, onDeleteSelf }) {
     <div className="editEducationItem">
       <div className="editItemHeader">
         <h3>Education</h3>
-        <div className="">
+        <div className="itemButtonContainer">
           <AddItemBtn onAdd={onAddSibling} id={id} text={"+"}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
           <ShowHideBtn

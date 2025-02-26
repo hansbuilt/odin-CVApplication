@@ -39,7 +39,7 @@ function EditJobCompany({
     <div className="editJobCompany">
       <div className="editItemHeader">
         <h3>Company</h3>
-        <div>
+        <div className="itemButtonContainer">
           <AddItemBtn onAdd={onAddSibling} id={id} text={"+"}></AddItemBtn>
           <DeleteItemBtn onDelete={onDeleteSelf} id={id}></DeleteItemBtn>
           <ShowHideBtn
